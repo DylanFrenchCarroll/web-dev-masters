@@ -1,20 +1,28 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import MovieDetailsPage from './pages/movieDetailsPage'
-import sample from './stories/sampleData'
-
-const movies = [sample, sample, sample, sample, sample, sample, sample];
-
-const images = [
-  "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
-  "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg",
-  "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
-  "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
-]
+import { BrowserRouter, Route, Navigate, Routes, Link } from "react-router-dom";
+import HomePage from "./pages/homePage";
+import MoviePage from "./pages/movieDetailsPage";
+import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 
 const App = () => {
   return (
-    <MovieDetailsPage movie={sample} images={images} />
+    <BrowserRouter>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/movies/favourites">Favourites</Link>
+        </li>
+      </ul>
+      <Routes>
+        <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
+        <Route path="/movies/:id" element={<MoviePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

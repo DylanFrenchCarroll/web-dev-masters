@@ -27,17 +27,16 @@ export const genreFiltering = {
   },
 };
 
-const FavouriteMoviesPage = () => {
-  const { favourites: movieIds } = useContext(MoviesContext);
+const MustWatchListPage = () => {
+  const { mustWatches: movieIds } = useContext(MoviesContext);
   console.log(movieIds)
-
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],
     [titleFiltering, genreFiltering]
   );
 
   // Create an array of queries and run them in parallel.
-  const favouriteMovieQueries = useQueries(
+  const mustWatchMovieQueries = useQueries(
     movieIds.map((movieId) => {
       return {
         queryKey: ["movie", { id: movieId }],
@@ -46,15 +45,15 @@ const FavouriteMoviesPage = () => {
     })
   );
   // Check if any of the parallel queries is still loading.
-  const isLoading = favouriteMovieQueries.find((m) => m.isLoading === true);
+  const isLoading = mustWatchMovieQueries.find((m) => m.isLoading === true);
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  const allFavourites = favouriteMovieQueries.map((q) => q.data);
-  const displayMovies = allFavourites
-    ? filterFunction(allFavourites)
+  const allMustWatches = mustWatchMovieQueries.map((q) => q.data);
+  const displayMovies = allMustWatches
+    ? filterFunction(allMustWatches)
     : [];
 
   const changeFilterValues = (type, value) => {
@@ -69,12 +68,12 @@ const FavouriteMoviesPage = () => {
   return (
     <>
       <PageTemplate
-        title="Favourite Movies"
+        title="Must Watch List"
         movies={displayMovies}
         action={(movie) => {
           return (
             <>
-              <RemoveFromFavourites movie={movie} />
+              {/* <RemoveFromFavourites movie={movie} /> */}
               <WriteReview movie={movie} />
             </>
           );
@@ -90,4 +89,4 @@ const FavouriteMoviesPage = () => {
   );
 };
 
-export default FavouriteMoviesPage;
+export default MustWatchListPage;

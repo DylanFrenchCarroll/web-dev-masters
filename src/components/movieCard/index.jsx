@@ -7,6 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import CheckIcon from '@mui/icons-material/Check';
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
@@ -21,16 +22,27 @@ const styles = {
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
+  avatar2: {
+    backgroundColor: "rgb(255, 0, 0)",
+  },
 };
 
 export default function MovieCard({ movie, action }) {
 
   const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { mustWatches, addToMustWatches } = useContext(MoviesContext);
+
 
   if (favourites.find((id) => id === movie.id)) {
     movie.favourite = true;
   } else {
     movie.favourite = false
+  }
+
+  if (mustWatches.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else {
+    movie.mustWatch = false
   }
 
 
@@ -44,7 +56,7 @@ export default function MovieCard({ movie, action }) {
           <Avatar sx={styles.avatar}>
             <FavoriteIcon />
           </Avatar>
-        ) : null
+        ) :  null
       }
       title={
         <Typography variant="h5" component="p">

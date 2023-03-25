@@ -14,7 +14,6 @@ const MovieDetailsPage = () => {
     ["movie", { id: id }],
     getMovie
   );
-
   if (isLoading) {
     return <Spinner />;
   }

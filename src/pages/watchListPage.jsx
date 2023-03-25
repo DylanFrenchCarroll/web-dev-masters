@@ -29,7 +29,6 @@ export const genreFiltering = {
 
 const MustWatchListPage = () => {
   const { mustWatches: movieIds } = useContext(MoviesContext);
-  console.log(movieIds)
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],
     [titleFiltering, genreFiltering]

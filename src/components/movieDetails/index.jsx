@@ -33,7 +33,6 @@ const styles = {
 
 const MovieDetails = ( {movie}) => {
   const [drawerOpen, setDrawerOpen] = useState(false); // New
-
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -55,6 +54,36 @@ const MovieDetails = ( {movie}) => {
         ))}
       </Paper>
       <Paper component="ul" sx={styles.chipSet}>
+        <li>
+          <Chip label="Production Companies" sx={styles.chipLabel} color="primary" />
+        </li>
+        {movie.production_companies.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name}  />
+          </li>
+        ))}
+      </Paper>
+      <Paper component="ul" sx={styles.chipSet}>
+        <li>
+          <Chip label="Production Countries" sx={styles.chipLabel} color="primary" />
+        </li>
+        {movie.production_countries.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name}  />
+          </li>
+        ))}
+      </Paper>
+      <Paper component="ul" sx={styles.chipSet}>
+        <li>
+          <Chip label="Languages" sx={styles.chipLabel} color="primary" />
+        </li>
+        {movie.spoken_languages.map((g) => (
+          <li key={g.english_name}>
+            <Chip label={g.english_name}  />
+          </li>
+        ))}
+      </Paper>
+      <Paper component="ul" sx={styles.chipSet}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
@@ -62,7 +91,7 @@ const MovieDetails = ( {movie}) => {
         />
         <Chip
           icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
+          label={`${movie.vote_average} (${movie.vote_count} votes)`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>

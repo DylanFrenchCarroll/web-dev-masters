@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext }  from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
@@ -7,6 +7,11 @@ import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Avatar from "@mui/material/Avatar";
+import { useQueries } from "react-query";
+import { MoviesContext } from "../../contexts/moviesContext";
+import { getMovie } from "../../api/tmdb-api";
+import Spinner from "../../components/spinner";
+
 
 const styles = {
     root: {  
@@ -23,12 +28,36 @@ const styles = {
 
 const MovieHeader = (props) => {
   const movie = props.movie;
-  const favourites = JSON.parse(localStorage.favourites); 
-  
-  let favourite = false;
-  if(JSON.parse(localStorage.favourites)?.find(x => x.id === movie.id)?.favourite != undefined){
-      favourite = true;
+  // Add favourite icon
+  const { favourites: movieIds } = useContext(MoviesContext);
+  const favouriteMovieQueries = useQueries(
+    movieIds.map((movieId) => {
+      return {
+        queryKey: ["movie", { id: movieId }],
+        queryFn: getMovie,
+      };
+    })
+  );
+
+  const isLoading = favouriteMovieQueries.find((m) => m.isLoading === true);
+
+  if (isLoading) {
+    return <Spinner />;
   }
+  const allFavourites = favouriteMovieQueries.map((q) => q.data);
+  let favourite = false;
+
+  const object = allFavourites.find(obj => obj.id === movie.id);
+
+  if( object !== undefined ){
+    if (object.id === movie.id){
+      favourite = true
+    }
+  }
+ 
+
+
+
 
   const renderFavIcon = () => {
     if (favourite) {

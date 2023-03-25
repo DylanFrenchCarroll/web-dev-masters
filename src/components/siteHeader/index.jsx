@@ -32,11 +32,11 @@ const SiteHeader = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
+    { label: "Discover", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
+    { label: "Popular Movies", path: "/movies/popular" },
     { label: "Favorites", path: "/movies/favourites" },
     { label: "Watch List", path: "/movies/watchlist" },
-    { label: "Option 4", path: "/" },
   ];
 
   const handleMenuSelect = (pageURL) => {

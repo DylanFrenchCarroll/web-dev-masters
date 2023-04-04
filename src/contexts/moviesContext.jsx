@@ -17,7 +17,7 @@ const MoviesContextProvider = (props) => {
 
   const addToMustWatches = (movie) => {
     let updatedMustWatches = [...mustWatches];
-    console.log(updatedMustWatches)
+
 
     if (!mustWatches.includes(movie.id)) {
       updatedMustWatches.push(movie.id);

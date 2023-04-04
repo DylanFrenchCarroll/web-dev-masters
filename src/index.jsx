@@ -13,7 +13,9 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import MustWatchListPage from "./pages/watchListPage";
 import PopularMoviePage from "./pages/popularMovies";
-
+import PopularPersonsPage from "./pages/popularPersons";
+import PersonDetailsPage from "./pages/personDetailsPage";
+import { Person } from "@mui/icons-material";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,6 +39,8 @@ const App = () => {
         <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
         <Route path="/movies/popular" element={<PopularMoviePage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
+        <Route path="/persons/popular" element={<PopularPersonsPage />} />
+        <Route path="/persons/:id" element={<PersonDetailsPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/reviews/:id" element={<MovieReviewPage/>} />

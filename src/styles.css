@@ -1,0 +1,33 @@
+.paginationList {
+  display: inline-block;
+}
+
+ul li {
+  display: inline-block;
+}
+
+.paginationNav {
+  text-align: center;
+}
+
+.page-item {
+  float: left;
+  padding: 2px 6px;
+}
+
+.paginationButtons.active {
+  background-color: #1976d2;
+  color: white;
+  border-radius: 5px;
+}
+.paginationButtons {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.paginationButtons:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}

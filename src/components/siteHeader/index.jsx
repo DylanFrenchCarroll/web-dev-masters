@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,6 +11,8 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const styles = {
   title: {
@@ -31,7 +33,21 @@ const SiteHeader = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/");
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
   const menuOptions = [
+    { label: "Login", path: "/login" },
+    { label: "Sign Up", path: "/signup" },
     { label: "Discover", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Popular Movies", path: "/movies/popular" },
@@ -97,6 +113,7 @@ const SiteHeader = () => {
             </>
           ) : (
             <>
+              <button onClick={handleLogout}>Logout</button>
               {menuOptions.map((opt) => (
                 <Button
                   key={opt.label}
@@ -111,8 +128,6 @@ const SiteHeader = () => {
         </Toolbar>
       </AppBar>
       <Offset />
-
-      {/* <div className={classes.offset} /> */}
     </>
   );
 };

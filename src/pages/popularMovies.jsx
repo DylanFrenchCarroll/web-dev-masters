@@ -10,7 +10,6 @@ import MovieFilterUI, {
 } from "../components/movieFilterUI";
 import AddToWatchList from "../components/cardIcons/addToWatchList";
 
-
 const titleFiltering = {
   name: "title",
   value: "",
@@ -23,11 +22,15 @@ const genreFiltering = {
 };
 
 const PopularMoviePage = (props) => {
-  const { data, error, isLoading, isError } = useQuery("popular", getPopularMovies);
+  const { data, error, isLoading, isError } = useQuery(
+    "popular",
+    getPopularMovies
+  );
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],
     [titleFiltering, genreFiltering]
   );
+  console.log(this.state);
 
   if (isLoading) {
     return <Spinner />;
@@ -49,14 +52,13 @@ const PopularMoviePage = (props) => {
   const movies = data ? data.results : [];
   const displayedMovies = filterFunction(movies);
 
-
   return (
     <>
       <PageTemplate
         title="Popular Movies"
         movies={displayedMovies}
         action={(movie) => {
-          return <AddToWatchList movie={movie} />
+          return <AddToWatchList movie={movie} />;
         }}
       />
       <MovieFilterUI

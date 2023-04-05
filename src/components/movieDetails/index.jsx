@@ -5,7 +5,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 import Typography from "@mui/material/Typography";
-
+import ReactPlayer from 'react-player'
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
@@ -31,7 +31,7 @@ const styles = {
   },
 };
 
-const MovieDetails = ( {movie}) => {
+const MovieDetails = ( {video, movie}) => {
   const [drawerOpen, setDrawerOpen] = useState(false); // New
   return (
     <>
@@ -95,6 +95,7 @@ const MovieDetails = ( {movie}) => {
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+          <ReactPlayer url={"https://www.youtube.com/watch?v=" + video.results[0].key}/>
       <Fab    
         color="secondary"
         variant="extended"

@@ -48,7 +48,6 @@ const SiteHeader = () => {
   const loggedInOptions = [
     { label: "Logout", path: "/logout" },
   ]
-  console.log(loggedIn())
   if ( loggedIn() ) {
     menuOptions = menuOptions.concat(loggedInOptions)
   }else{

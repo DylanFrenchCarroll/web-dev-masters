@@ -33,7 +33,6 @@ const styles = {
 
 const PersonDetails = ( {person}) => {
   const [drawerOpen, setDrawerOpen] = useState(false); // New
-  console.log(person)
   return (
     <>
       <Typography variant="h5" component="h3">

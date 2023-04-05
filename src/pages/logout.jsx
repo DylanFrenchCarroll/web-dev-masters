@@ -11,7 +11,6 @@ const Logout = () => {
         // Sign-out successful.
         localStorage.removeItem('authUser');
         navigate("/");
-        console.log("Signed out successfully");
       })
       .catch((error) => {
         // An error happened.

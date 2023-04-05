@@ -4,12 +4,14 @@ import { BrowserRouter, Route, Navigate, Routes, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
+import FavouritePersonPage from "./pages/favouritePersonsPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from "./components/siteHeader";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import MoviesContextProvider from "./contexts/moviesContext";
+import PersonContextProvider from "./contexts/personContext";
 import AddMovieReviewPage from "./pages/addMovieReviewPage";
 import MustWatchListPage from "./pages/watchListPage";
 import PopularMoviePage from "./pages/popularMovies";
@@ -35,6 +37,7 @@ const App = () => {
         <BrowserRouter>
           <SiteHeader />
           <MoviesContextProvider>
+            <PersonContextProvider>
             <Routes>
               <Route path="/movies/favourites" element={<FavouriteMoviesPage />}/>
               <Route path="/movies/watchlist" element={<MustWatchListPage />} />
@@ -43,6 +46,7 @@ const App = () => {
               <Route path="/movies/:id" element={<MoviePage />} />
               <Route path="/persons/popular" element={<PopularPersonsPage />} />
               <Route path="/persons/:id" element={<PersonDetailsPage />} />
+              <Route path="/persons/favourites" element={<FavouritePersonPage />}/>
               <Route path="/" element={<HomePage />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/reviews/:id" element={<MovieReviewPage />} />
@@ -52,6 +56,7 @@ const App = () => {
               <Route path="/logout" element={<Logout />} />
 
             </Routes>
+            </PersonContextProvider>
           </MoviesContextProvider>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false} />

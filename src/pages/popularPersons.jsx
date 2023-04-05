@@ -4,6 +4,12 @@ import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import { getPopularPersons } from "../api/tmdb-api";
 import { checkLogin } from "../util";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
+import AddToFavouritesPersonIcon from "../components/cardIcons/addToFavouritesPerson";
+
+
+
+
 
 const PopularPersonsPage = (props) => {
 checkLogin();
@@ -23,18 +29,17 @@ checkLogin();
 
   const people = data ? data.results : [];
   const displayedPeople = people;
-  const movie = "test";
 
   return (
     <>
       <PageTemplate
         title="Popular People"
         persons={displayedPeople}
-        // action={(person) => {
-        //   return <AddToWatchList movie={person} />
-        // }}
+        action={(person) => {
+          return <AddToFavouritesPersonIcon person={person} />
+        }}
       />
-    </>
+    </> 
   );
 };
 

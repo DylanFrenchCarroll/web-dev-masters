@@ -59,7 +59,7 @@ checkLogin();
         movies={displayedMovies}
         action={(movie) => {
           return <AddToFavouritesIcon movie={movie} />;
-        }}
+        }} 
       />
       <MovieFilterUI
         onFilterValuesChange={changeFilterValues}

@@ -1,22 +1,22 @@
 import React from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Logout = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        localStorage.removeItem('authUser');
         navigate("/");
         console.log("Signed out successfully");
       })
       .catch((error) => {
         // An error happened.
       });
-  };
+  
 
   return (
     <>
@@ -24,11 +24,11 @@ const Home = () => {
         <p>Welcome Home</p>
 
         <div>
-          <button onClick={handleLogout}>Logout</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
         </div>
       </nav>
     </>
   );
 };
 
-export default Home;
+export default Logout;

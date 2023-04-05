@@ -9,7 +9,7 @@ import MovieFilterUI, {
   genreFilter,
 } from "../components/movieFilterUI";
 import AddToWatchList from "../components/cardIcons/addToWatchList";
-
+import { checkLogin } from "../util";
 
 const titleFiltering = {
   name: "title",
@@ -23,6 +23,9 @@ const genreFiltering = {
 };
 
 const UpcomingMoviePage = (props) => {
+
+  checkLogin();
+
   const { data, error, isLoading, isError } = useQuery("upcoming", getUpcomingMovies);
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],

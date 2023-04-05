@@ -6,9 +6,12 @@ import { getMovie, getPerson } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 import PageTemplate from "../components/templatePersonPage";
+import { checkLogin } from "../util";
 
 
 const PersonDetailsPage = () => {
+checkLogin();
+
   const { id } = useParams();
 
   const { data: person, error, isLoading, isError } = useQuery(

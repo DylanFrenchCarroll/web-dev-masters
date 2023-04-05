@@ -3,8 +3,11 @@ import PageTemplate from "../components/templatePersonListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import { getPopularPersons } from "../api/tmdb-api";
+import { checkLogin } from "../util";
 
 const PopularPersonsPage = (props) => {
+checkLogin();
+
   const { data, error, isLoading, isError } = useQuery(
     "popularPersons",
     getPopularPersons

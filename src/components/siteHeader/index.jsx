@@ -11,9 +11,7 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
-
+import { loggedIn } from "../../util";
 const styles = {
   title: {
     flexGrow: 1,
@@ -33,21 +31,7 @@ const SiteHeader = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        navigate("/");
-        console.log("Signed out successfully");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
-
-  const menuOptions = [
-    { label: "Login", path: "/login" },
-    { label: "Sign Up", path: "/signup" },
+  let menuOptions = [
     { label: "Discover", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Popular Movies", path: "/movies/popular" },
@@ -55,6 +39,22 @@ const SiteHeader = () => {
     { label: "Watch List", path: "/movies/watchlist" },
     { label: "Popular People", path: "/persons/popular" },
   ];
+
+  const loggedOutOptions = [
+    { label: "Login", path: "/login" },
+    { label: "Sign Up", path: "/signup" },
+  ]
+
+  const loggedInOptions = [
+    { label: "Logout", path: "/logout" },
+  ]
+  console.log(loggedIn())
+  if ( loggedIn() ) {
+    menuOptions = menuOptions.concat(loggedInOptions)
+  }else{
+    menuOptions = menuOptions.concat(loggedOutOptions)
+  }
+
 
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL);
@@ -113,7 +113,6 @@ const SiteHeader = () => {
             </>
           ) : (
             <>
-              <button onClick={handleLogout}>Logout</button>
               {menuOptions.map((opt) => (
                 <Button
                   key={opt.label}

@@ -6,8 +6,11 @@ import useMovie from "../hooks/useMovie";
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
+import { checkLogin } from "../util";
 
 const MovieDetailsPage = () => {
+checkLogin();
+  
   const { id } = useParams();
 
   const { data: movie, error, isLoading, isError } = useQuery(

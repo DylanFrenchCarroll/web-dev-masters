@@ -9,6 +9,7 @@ import MovieFilterUI, {
   genreFilter,
 } from "../components/movieFilterUI";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
+import { checkLogin } from "../util";
 
 const titleFiltering = {
   name: "title",
@@ -22,6 +23,8 @@ const genreFiltering = {
 };
 
 const HomePage = (props) => {
+checkLogin();
+
   const { data, error, isLoading, isError } = useQuery("discover", getMovies);
 
   const { filterValues, setFilterValues, filterFunction } = useFiltering(

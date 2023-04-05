@@ -17,6 +17,7 @@ import PopularPersonsPage from "./pages/popularPersons";
 import PersonDetailsPage from "./pages/personDetailsPage";
 import Signup from "./pages/signUp";
 import Login from "./pages/login";
+import Logout from "./pages/logout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,8 @@ const App = () => {
               <Route path="/reviews/form" element={<AddMovieReviewPage />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
+
             </Routes>
           </MoviesContextProvider>
         </BrowserRouter>

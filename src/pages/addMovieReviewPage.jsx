@@ -5,8 +5,11 @@ import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
+import { checkLogin } from "../util";
 
 const WriteReviewPage = (props) => {
+checkLogin();
+
   const location = useLocation()
   const { movieId } = location.state;
   const { data: movie, error, isLoading, isError } = useQuery(

@@ -30,7 +30,6 @@ const PopularMoviePage = (props) => {
     [],
     [titleFiltering, genreFiltering]
   );
-  console.log(this.state);
 
   if (isLoading) {
     return <Spinner />;

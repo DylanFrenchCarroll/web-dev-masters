@@ -56,7 +56,10 @@ const signInWithGoogle = async () => {
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+     await signInWithEmailAndPassword(auth, email, password).then( (resp) => {
+      localStorage.setItem('authUser', JSON.stringify(resp.user));
+    });
+    
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -90,10 +93,13 @@ const sendPasswordReset = async (email) => {
 };
 
 const logout = () => {
-  signOut(auth);
+  signOut(auth).then(() => {
+    localStorage.setItem('authUser', null);
+  });
 };
 
 export {
+  app,
   auth,
   db,
   signInWithGoogle,

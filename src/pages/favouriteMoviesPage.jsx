@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
@@ -8,7 +8,9 @@ import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, { titleFilter } from "../components/movieFilterUI";
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 const titleFiltering = {
   name: "title",
@@ -28,6 +30,15 @@ export const genreFiltering = {
 };
 
 const FavouriteMoviesPage = () => {
+
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  console.log(user)
+  useEffect(() => {
+    if (!user) navigate("/login");
+  }, [user, loading]);
+
+
   const { favourites: movieIds } = useContext(MoviesContext);
 
   const { filterValues, setFilterValues, filterFunction } = useFiltering(

@@ -1,20 +1,14 @@
 import React from "react";
-// import PageTemplate from "../components/templateMovieListPage";
 import PageTemplate from "../components/templatePersonListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import { getPopularPersons, getUpcomingMovies } from "../api/tmdb-api";
-import useFiltering from "../hooks/useFiltering";
-import MovieFilterUI, {
-  titleFilter,
-  genreFilter,
-} from "../components/movieFilterUI";
-import AddToWatchList from "../components/cardIcons/addToWatchList";
-
-
+import { getPopularPersons } from "../api/tmdb-api";
 
 const PopularPersonsPage = (props) => {
-  const { data, error, isLoading, isError } = useQuery("popularPersons", getPopularPersons);
+  const { data, error, isLoading, isError } = useQuery(
+    "popularPersons",
+    getPopularPersons
+  );
 
   if (isLoading) {
     return <Spinner />;
@@ -23,8 +17,6 @@ const PopularPersonsPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-
-
 
   const people = data ? data.results : [];
   const displayedPeople = people;
@@ -39,7 +31,6 @@ const PopularPersonsPage = (props) => {
         //   return <AddToWatchList movie={person} />
         // }}
       />
-
     </>
   );
 };

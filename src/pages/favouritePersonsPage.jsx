@@ -1,14 +1,9 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templatePersonListPage";
-import { MoviesContext } from "../contexts/moviesContext";
+import PageTemplate from "../components/templateFavouritePersonListPage";
 import { useQueries } from "react-query";
-import { getMovie, getPerson } from "../api/tmdb-api";
+import {  getPerson } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import useFiltering from "../hooks/useFiltering";
-import MovieFilterUI, { titleFilter } from "../components/movieFilterUI";
-import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import RemoveFromFavouritesPersonIcon from "../components/cardIcons/removeFromFavouritesPerson";
-import WriteReview from "../components/cardIcons/writeReview";
 import { checkLogin } from "../util";
 import { PersonContext } from "../contexts/personContext" 
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../pagination";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
-import PersonList from "../personList";
+import PersonList from "../personFavouriteList";
 
 const styles = {
   root: {
@@ -10,7 +10,7 @@ const styles = {
   },
 };
 
-function PersonListPageTemplate({ persons, title, action }) {
+function FavouritePersonListPageTemplate({ persons, title, action }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(12);
   const indexOfLastRecord = currentPage * recordsPerPage;
@@ -36,4 +36,4 @@ function PersonListPageTemplate({ persons, title, action }) {
     </div>
   );
 }
-export default PersonListPageTemplate;
+export default FavouritePersonListPageTemplate;

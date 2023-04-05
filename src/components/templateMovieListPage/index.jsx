@@ -10,9 +10,9 @@ const styles = {
   },
 };
 
-function App({ movies, title, action }) {
+function MovieListPageTemplate({ movies, title, action }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage] = useState(2);
+  const [recordsPerPage] = useState(12);
 
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -38,6 +38,4 @@ function App({ movies, title, action }) {
   );
 }
 
-export default App;
-
-// export default MovieListPageTemplate;
+export default MovieListPageTemplate;

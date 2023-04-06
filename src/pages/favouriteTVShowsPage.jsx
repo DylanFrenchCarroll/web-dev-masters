@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templateFavouriteTVshowListPage";
+import PageTemplate from "../components/TVShows/templateFavouriteTVshowListPage";
 import { useQueries } from "react-query";
 import { getShow } from "../api/tmdb-api";
 import Spinner from "../components/Utils/spinner";

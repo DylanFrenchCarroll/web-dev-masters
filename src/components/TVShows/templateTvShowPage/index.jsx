@@ -2,10 +2,10 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getShowImages } from "../../api/tmdb-api";
+import { getShowImages } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from "../Utils/spinner";
-import TvShowHeader from "../headerTvShows";
+import Spinner from "../../Utils/spinner";
+import TvShowHeader from "../../headerTvShows";
 
 const styles = {
   gridListRoot: {

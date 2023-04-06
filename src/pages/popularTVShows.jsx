@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/templateTVShowsListPage";
+import PageTemplate from "../components/TVShows/templateTVShowsListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/Utils/spinner";
 import { getPopularTVShows } from "../api/tmdb-api";

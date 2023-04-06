@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/Persons/templateFavouritePersonListPage";
+import PageTemplate from "../../components/Persons/templateFavouritePersonListPage";
 import { useQueries } from "react-query";
-import { getPerson } from "../api/tmdb-api";
-import Spinner from "../components/Utils/spinner";
-import RemoveFromFavouritesPersonIcon from "../components/cardIcons/removeFromFavouritesPerson";
-import { checkLogin } from "../util";
-import { PersonContext } from "../contexts/personContext";
+import { getPerson } from "../../api/tmdb-api";
+import Spinner from "../../components/Utils/spinner";
+import RemoveFromFavouritesPersonIcon from "../../components/cardIcons/removeFromFavouritesPerson";
+import { checkLogin } from "../../util";
+import { PersonContext } from "../../contexts/personContext";
 
 const FavouritePersonPage = () => {
   checkLogin();

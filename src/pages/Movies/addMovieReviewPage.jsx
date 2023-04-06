@@ -1,11 +1,11 @@
 import React from "react";
-import PageTemplate from "../components/Movies/templateMoviePage";
-import ReviewForm from "../components/Reviews/reviewForm";
+import PageTemplate from "../../components/Movies/templateMoviePage";
+import ReviewForm from "../../components/Reviews/reviewForm";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getMovie } from "../api/tmdb-api";
-import Spinner from "../components/Utils/spinner";
-import { checkLogin } from "../util";
+import { getMovie } from "../../api/tmdb-api";
+import Spinner from "../../components/Utils/spinner";
+import { checkLogin } from "../../util";
 
 const WriteReviewPage = (props) => {
   checkLogin();

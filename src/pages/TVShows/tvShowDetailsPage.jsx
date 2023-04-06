@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import TvShowDetails from "../components/TVShows/tvShowDetails";
-import { getShow } from "../api/tmdb-api";
+import TvShowDetails from "../../components/TVShows/tvShowDetails";
+import { getShow } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from "../components/Utils/spinner";
-import PageTemplate from "../components/TVShows/templateTvShowPage";
-import { checkLogin } from "../util";
+import Spinner from "../../components/Utils/spinner";
+import PageTemplate from "../../components/TVShows/templateTvShowPage";
+import { checkLogin } from "../../util";
 
 const TvShowDetailsPage = () => {
   checkLogin();

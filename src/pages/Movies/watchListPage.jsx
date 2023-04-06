@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/Movies/templateMovieListPage";
-import { MoviesContext } from "../contexts/moviesContext";
+import PageTemplate from "../../components/Movies/templateMovieListPage";
+import { MoviesContext } from "../../contexts/moviesContext";
 import { useQueries } from "react-query";
-import { getMovie } from "../api/tmdb-api";
-import Spinner from "../components/Utils/spinner";
-import useFiltering from "../hooks/useFiltering";
-import MovieFilterUI, { titleFilter } from "../components/Movies/movieFilterUI";
-import WriteReview from "../components/cardIcons/writeReview";
-import { checkLogin } from "../util";
+import { getMovie } from "../../api/tmdb-api";
+import Spinner from "../../components/Utils/spinner";
+import useFiltering from "../../hooks/useFiltering";
+import MovieFilterUI, { titleFilter } from "../../components/Movies/movieFilterUI";
+import WriteReview from "../../components/cardIcons/writeReview";
+import { checkLogin } from "../../util";
 
 const titleFiltering = {
   name: "title",

@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import MovieDetails from "../components/Movies/movieDetails";
-import PageTemplate from "../components/Movies/templateMoviePage";
-import { getMovie, getMovieVideo } from "../api/tmdb-api";
+import MovieDetails from "../../components/Movies/movieDetails";
+import PageTemplate from "../../components/Movies/templateMoviePage";
+import { getMovie, getMovieVideo } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from "../components/Utils/spinner";
-import { checkLogin } from "../util";
+import Spinner from "../../components/Utils/spinner";
+import { checkLogin } from "../../util";
 
 const MovieDetailsPage = () => {
   checkLogin();

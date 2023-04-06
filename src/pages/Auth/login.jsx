@@ -4,9 +4,9 @@ import {
   auth,
   logInWithEmailAndPassword,
   signInWithGoogle,
-} from "../firebase.js";
+} from "../../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./Login.css";
+import "../css/Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");

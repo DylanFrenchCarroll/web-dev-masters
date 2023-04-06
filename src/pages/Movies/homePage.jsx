@@ -1,15 +1,15 @@
 import React from "react";
-import PageTemplate from "../components/Movies/templateMovieListPage";
+import PageTemplate from "../../components/Movies/templateMovieListPage";
 import { useQuery } from "react-query";
-import Spinner from "../components/Utils/spinner";
-import { getUpcomingMovies } from "../api/tmdb-api";
-import useFiltering from "../hooks/useFiltering";
+import Spinner from "../../components/Utils/spinner";
+import { getMovies } from "../../api/tmdb-api";
+import useFiltering from "../../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
   genreFilter,
-} from "../components/Movies/movieFilterUI";
-import AddToWatchList from "../components/cardIcons/addToWatchList";
-import { checkLogin } from "../util";
+} from "../../components/Movies/movieFilterUI";
+import AddToFavouritesIcon from "../../components/cardIcons/addToFavourites";
+import { checkLogin } from "../../util";
 
 const titleFiltering = {
   name: "title",
@@ -22,13 +22,11 @@ const genreFiltering = {
   condition: genreFilter,
 };
 
-const UpcomingMoviePage = (props) => {
+const HomePage = (props) => {
   checkLogin();
 
-  const { data, error, isLoading, isError } = useQuery(
-    "upcoming",
-    getUpcomingMovies
-  );
+  const { data, error, isLoading, isError } = useQuery("discover", getMovies);
+
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],
     [titleFiltering, genreFiltering]
@@ -57,10 +55,10 @@ const UpcomingMoviePage = (props) => {
   return (
     <>
       <PageTemplate
-        title="Upcoming Movies"
+        title="Discover Movies"
         movies={displayedMovies}
         action={(movie) => {
-          return <AddToWatchList movie={movie} />;
+          return <AddToFavouritesIcon movie={movie} />;
         }}
       />
       <MovieFilterUI
@@ -72,4 +70,4 @@ const UpcomingMoviePage = (props) => {
   );
 };
 
-export default UpcomingMoviePage;
+export default HomePage;

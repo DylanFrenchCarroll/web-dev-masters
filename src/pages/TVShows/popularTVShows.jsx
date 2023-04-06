@@ -1,10 +1,10 @@
 import React from "react";
-import PageTemplate from "../components/TVShows/templateTVShowsListPage";
+import PageTemplate from "../../components/TVShows/templateTVShowsListPage";
 import { useQuery } from "react-query";
-import Spinner from "../components/Utils/spinner";
-import { getPopularTVShows } from "../api/tmdb-api";
-import { checkLogin } from "../util";
-import AddToFavouritesTVShowIcon from "../components/cardIcons/addToFavouritesTVShow";
+import Spinner from "../../components/Utils/spinner";
+import { getPopularTVShows } from "../../api/tmdb-api";
+import { checkLogin } from "../../util";
+import AddToFavouritesTVShowIcon from "../../components/cardIcons/addToFavouritesTVShow";
 
 const PopularTVShowsPage = (props) => {
   checkLogin();

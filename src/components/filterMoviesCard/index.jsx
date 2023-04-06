@@ -11,7 +11,7 @@ import { getGenres } from "../../api/tmdb-api";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useQuery } from "react-query";
-import Spinner from "../spinner";
+import Spinner from "../Utils/spinner";
 
 const styles = {
   root: {

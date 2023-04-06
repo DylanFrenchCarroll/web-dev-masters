@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Pagination from "../pagination";
+import Pagination from "../Utils/pagination";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
 import PersonList from "../personFavouriteList";

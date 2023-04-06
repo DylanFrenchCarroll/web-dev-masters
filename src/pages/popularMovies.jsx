@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
-import Spinner from "../components/spinner";
+import Spinner from "../components/Utils/spinner";
 import { getPopularMovies } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {

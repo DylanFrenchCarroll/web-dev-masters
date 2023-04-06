@@ -4,7 +4,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { getPersonImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from "../spinner";
+import Spinner from "../Utils/spinner";
 import PersonHeader from "../headerPerson";
 
 const styles = {

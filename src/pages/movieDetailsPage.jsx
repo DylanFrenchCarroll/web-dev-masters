@@ -4,7 +4,7 @@ import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import { getMovie, getMovieVideo } from "../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from "../components/spinner";
+import Spinner from "../components/Utils/spinner";
 import { checkLogin } from "../util";
 
 const MovieDetailsPage = () => {

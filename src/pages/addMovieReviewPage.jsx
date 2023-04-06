@@ -4,7 +4,7 @@ import ReviewForm from "../components/reviewForm";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getMovie } from "../api/tmdb-api";
-import Spinner from "../components/spinner";
+import Spinner from "../components/Utils/spinner";
 import { checkLogin } from "../util";
 
 const WriteReviewPage = (props) => {

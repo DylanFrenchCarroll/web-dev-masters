@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import { useQueries } from "react-query";
 import { MoviesContext } from "../../contexts/moviesContext";
 import { getMovie } from "../../api/tmdb-api";
-import Spinner from "../../components/spinner";
+import Spinner from "../../components/Utils/spinner";
 
 const styles = {
   root: {

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PageTemplate from "../components/templateFavouriteTVshowListPage";
 import { useQueries } from "react-query";
 import { getShow } from "../api/tmdb-api";
-import Spinner from "../components/spinner";
+import Spinner from "../components/Utils/spinner";
 import { checkLogin } from "../util";
 import { TvShowContext } from "../contexts/tvShowContext";
 import RemoveFromFavouritesTvShowIcon from "../components/cardIcons/removeFromFavouritesTvShow";

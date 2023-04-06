@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from "../components/templatePersonListPage";
 import { useQuery } from "react-query";
-import Spinner from "../components/spinner";
+import Spinner from "../components/Utils/spinner";
 import { getPopularPersons } from "../api/tmdb-api";
 import { checkLogin } from "../util";
 import AddToFavouritesPersonIcon from "../components/cardIcons/addToFavouritesPerson";

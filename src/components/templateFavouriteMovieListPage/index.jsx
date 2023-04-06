@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
 import MovieList from "../movieFavouriteList";
-import Pagination from "../pagination";
+import Pagination from "../Utils/pagination";
 
 const styles = {
   root: {

@@ -16,8 +16,10 @@ const TvShowFavouriteList = ( {tvshows, action }) => {
    if(index != tvshows.length -1  ){
       [tvshows[index+1], tvshows[index]] = [tvshows[index], tvshows[index+1]];
     }
-    forceUpdate();
+    forceUpdate(); 
   };
+
+  
   let showCards = tvshows.map((m, index) => (
     <Grid key={m.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
       <TvShowCard increaseRank={increaseRank} decreaseRank={decreaseRank} key={m.id} show={m} action={action} index={index}/>

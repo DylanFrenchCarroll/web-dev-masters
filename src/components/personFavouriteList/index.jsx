@@ -2,8 +2,6 @@ import React, {useEffect, useReducer} from "react";
 import Person from "../personCardFavourite";
 import Grid from "@mui/material/Grid";
 
-
-
 const PersonList = ( {persons, action }) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -15,7 +13,7 @@ const PersonList = ( {persons, action }) => {
   };
 
   const decreaseRank = (index) => {
-   if(index != persons.length -1  ){
+   if(index != persons.length -1  ){ 
       [persons[index+1], persons[index]] = [persons[index], persons[index+1]];
     }
     forceUpdate();

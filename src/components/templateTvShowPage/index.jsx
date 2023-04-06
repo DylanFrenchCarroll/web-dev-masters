@@ -3,10 +3,11 @@ import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getPersonImages } from "../../api/tmdb-api";
+import { getShowImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-import PersonHeader from "../headerPerson"
+import TvShowHeader from "../headerTvShows";
+
 
 const styles = {
   gridListRoot: {
@@ -20,10 +21,10 @@ const styles = {
   },
 };
 
-const TemplatePersonPage = ({ person, children }) => {
+const TemplateTvShowPage = ({ show, children }) => {
   const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: person.id }],
-    getPersonImages
+    ["images", { id: show.id }],
+    getShowImages
   );
 
   if (isLoading) {
@@ -33,12 +34,12 @@ const TemplatePersonPage = ({ person, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  console.log(data)
-  const images = data.profiles
+  console.log(show)
+  const images = data.posters
 
   return (
     <>
-      <PersonHeader person={person} />
+      <TvShowHeader show={show} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
@@ -64,8 +65,9 @@ const TemplatePersonPage = ({ person, children }) => {
           {children}
         </Grid>
       </Grid>
+
     </>
   );
 };
 
-export default TemplatePersonPage;
+export default TemplateTvShowPage;

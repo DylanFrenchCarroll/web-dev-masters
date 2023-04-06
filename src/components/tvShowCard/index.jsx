@@ -69,7 +69,7 @@ export default function TvShowCard({ show, action }) {
       </CardContent>
       <CardActions disableSpacing>
         {action(show)}
-        <Link to={`/shows/${show.id}`}>
+        <Link to={`/tvshows/${show.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

@@ -23,6 +23,7 @@ import Login from "./pages/login";
 import Logout from "./pages/logout";
 import PopularTVShowsPage from "./pages/popularTVShows";
 import FavouriteTvShowPage from "./pages/favouriteTVShowsPage";
+import TvShowDetailsPage from "./pages/tvShowDetailsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,7 +54,7 @@ const App = () => {
               <Route path="/persons/favourites" element={<FavouritePersonPage />}/>
               <Route path="/tvshows/popular" element={<PopularTVShowsPage />} />
               <Route path="/tvshows/favourites" element={<FavouriteTvShowPage />} />
-
+              <Route path="/tvshows/:id" element={<TvShowDetailsPage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/reviews/:id" element={<MovieReviewPage />} />

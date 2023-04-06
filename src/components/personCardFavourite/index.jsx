@@ -13,8 +13,6 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
-import { MoviesContext } from "../../contexts/moviesContext";
 
 const styles = {
   card: { maxWidth: 345 },
@@ -46,16 +44,18 @@ export default function PersonCardFavourite({ person, action, index, increaseRan
             ? `https://image.tmdb.org/t/p/w500${person.profile_path}`
             : img
         }
-      />
+      /> 
      
       <CardActions disableSpacing>
 
       { action(person)}
+
         <Link to={`/persons/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             Info 
           </Button>
         </Link>
+        
         <Button onClick={event => increaseRank(index)} variant="outlined" size="medium" color="primary">
            +
           </Button>

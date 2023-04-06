@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/Movies/templateMovieListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/Utils/spinner";
 import { getMovies } from "../api/tmdb-api";
@@ -7,7 +7,7 @@ import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
   genreFilter,
-} from "../components/movieFilterUI";
+} from "../components/Movies/movieFilterUI";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import { checkLogin } from "../util";
 

@@ -5,7 +5,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getShowImages } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../../Utils/spinner";
-import TvShowHeader from "../../headerTvShows";
+import TvShowHeader from "../headerTvShows";
 
 const styles = {
   gridListRoot: {

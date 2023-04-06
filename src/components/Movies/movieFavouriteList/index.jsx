@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import Movie from "../movieFavouriteCard";
+import Movie from "../../Movies/movieFavouriteCard";
 import Grid from "@mui/material/Grid";
 
 const MovieFavouriteList = ({ movies, action }) => {

@@ -8,9 +8,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Avatar from "@mui/material/Avatar";
 import { useQueries } from "react-query";
-import { MoviesContext } from "../../contexts/moviesContext";
-import { getMovie } from "../../api/tmdb-api";
-import Spinner from "../../components/Utils/spinner";
+import { MoviesContext } from "../../../contexts/moviesContext";
+import { getMovie } from "../../../api/tmdb-api";
+import Spinner from "../../Utils/spinner";
 
 const styles = {
   root: {

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templateFavouriteMovieListPage";
+import PageTemplate from "../components/Movies/templateFavouriteMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/Utils/spinner";
 import useFiltering from "../hooks/useFiltering";
-import MovieFilterUI, { titleFilter } from "../components/movieFilterUI";
+import MovieFilterUI, { titleFilter } from "../components/Movies/movieFilterUI";
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
 import { checkLogin } from "../util";

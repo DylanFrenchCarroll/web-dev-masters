@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import PersonDetails from "../components/personDetails";
+import PersonDetails from "../components/Persons/personDetails";
 import { getPerson } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/Utils/spinner";
-import PageTemplate from "../components/templatePersonPage";
+import PageTemplate from "../components/Persons/templatePersonPage";
 import { checkLogin } from "../util";
 
 const PersonDetailsPage = () => {

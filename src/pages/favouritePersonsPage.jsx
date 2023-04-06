@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templateFavouritePersonListPage";
+import PageTemplate from "../components/Persons/templateFavouritePersonListPage";
 import { useQueries } from "react-query";
 import { getPerson } from "../api/tmdb-api";
 import Spinner from "../components/Utils/spinner";

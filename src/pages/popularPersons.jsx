@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/templatePersonListPage";
+import PageTemplate from "../components/Persons/templatePersonListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/Utils/spinner";
 import { getPopularPersons } from "../api/tmdb-api";

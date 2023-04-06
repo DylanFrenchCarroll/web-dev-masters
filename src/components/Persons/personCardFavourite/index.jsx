@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import img from "../../images/film-poster-placeholder.png";
+import img from "../../../images/film-poster-placeholder.png";
 import { Link } from "react-router-dom";
 
 const styles = {
@@ -19,14 +19,20 @@ const styles = {
   },
 };
 
-export default function PersonCard({ person, action }) {
+export default function PersonCardFavourite({
+  person,
+  action,
+  index,
+  increaseRank,
+  decreaseRank,
+}) {
   return (
     <Card sx={styles.card}>
       <CardHeader
         sx={styles.header}
         title={
           <Typography variant="h5" component="p">
-            {person.name}{" "}
+            {index + 1} - {person.name}{" "}
           </Typography>
         }
       />
@@ -41,11 +47,29 @@ export default function PersonCard({ person, action }) {
 
       <CardActions disableSpacing>
         {action(person)}
+
         <Link to={`/persons/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+            Info
           </Button>
         </Link>
+
+        <Button
+          onClick={(event) => increaseRank(index)}
+          variant="outlined"
+          size="medium"
+          color="primary"
+        >
+          +
+        </Button>
+        <Button
+          onClick={(event) => decreaseRank(index)}
+          variant="outlined"
+          size="medium"
+          color="primary"
+        >
+          -
+        </Button>
       </CardActions>
     </Card>
   );

@@ -40,6 +40,8 @@ const SiteHeader = () => {
     { label: "Popular People", path: "/persons/popular" },
     { label: "Popular TV Shows", path: "/tvshows/popular" },
     { label: "Favorite Persons", path: "/persons/favourites" },
+    { label: "Favorite Shows", path: "/tvshows/favourites" },
+
   ];
 
   const loggedOutOptions = [

@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-export default function TvShowCard({ show, action }) {
+export default function TvShowFavouriteCard({ show, action,index, increaseRank, decreaseRank }) {
   return (
     <Card sx={styles.card}>
       <CardHeader
@@ -71,9 +71,15 @@ export default function TvShowCard({ show, action }) {
         {action(show)}
         <Link to={`/shows/${show.id}`}>
           <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+            Info
           </Button>
         </Link>
+        <Button onClick={event => increaseRank(index)} variant="outlined" size="medium" color="primary">
+           +
+          </Button>
+          <Button onClick={event => decreaseRank(index)} variant="outlined" size="medium" color="primary">
+           -
+          </Button>
       </CardActions>
     </Card>
   );

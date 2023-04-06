@@ -6,7 +6,7 @@ import MoviePage from "./pages/Movies/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/Movies/favouriteMoviesPage"; // NEW
 import FavouritePersonPage from "./pages/Persons/favouritePersonsPage";
 import MovieReviewPage from "./pages/Movies/movieReviewPage";
-import SiteHeader from "./components/siteHeader";
+import SiteHeader from "./components/Utils/siteHeader";
 import UpcomingMoviesPage from "./pages/Movies/upcomingMoviesPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";

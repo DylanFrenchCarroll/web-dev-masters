@@ -15,7 +15,7 @@ const PersonContextProvider = (props) => {
 
   // We will use this function in a later section
   const removeFromFavouritesPerson = (person) => {
-    setFavouritesPerson(favouritesPersons.filter((mId) => mId !== person.id));
+    setFavouritesPersons(favouritesPersons.filter((mId) => mId !== person.id));
   };
 
   return (

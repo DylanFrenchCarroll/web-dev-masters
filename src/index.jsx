@@ -12,6 +12,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import MoviesContextProvider from "./contexts/moviesContext";
 import PersonContextProvider from "./contexts/personContext";
+import TvShowContextProvider from "./contexts/tvShowContext";
 import AddMovieReviewPage from "./pages/addMovieReviewPage";
 import MustWatchListPage from "./pages/watchListPage";
 import PopularMoviePage from "./pages/popularMovies";
@@ -20,6 +21,7 @@ import PersonDetailsPage from "./pages/personDetailsPage";
 import Signup from "./pages/signUp";
 import Login from "./pages/login";
 import Logout from "./pages/logout";
+import PopularTVShowsPage from "./pages/popularTVShows";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +40,7 @@ const App = () => {
           <SiteHeader />
           <MoviesContextProvider>
             <PersonContextProvider>
+              <TvShowContextProvider>
             <Routes>
               <Route path="/movies/favourites" element={<FavouriteMoviesPage />}/>
               <Route path="/movies/watchlist" element={<MustWatchListPage />} />
@@ -47,6 +50,7 @@ const App = () => {
               <Route path="/persons/popular" element={<PopularPersonsPage />} />
               <Route path="/persons/:id" element={<PersonDetailsPage />} />
               <Route path="/persons/favourites" element={<FavouritePersonPage />}/>
+              <Route path="/tvshows/popular" element={<PopularTVShowsPage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/reviews/:id" element={<MovieReviewPage />} />
@@ -56,6 +60,7 @@ const App = () => {
               <Route path="/logout" element={<Logout />} />
 
             </Routes>
+            </TvShowContextProvider>
             </PersonContextProvider>
           </MoviesContextProvider>
         </BrowserRouter>

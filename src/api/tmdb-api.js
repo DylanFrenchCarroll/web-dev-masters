@@ -242,3 +242,33 @@ export const getPerson = (args) => {
       throw error;
     });
 };
+
+export const getPopularTVShows = async () => {
+  let resultsList = [];
+  // A bit hacky to avoid changing a lot of logic made from lab code
+  let fakeResponse = {
+    results: [],
+  };
+
+  // Loop through some requests pages based on api limit
+  for (let i = 1; i < 5; i++) {
+    let z = await fetch(
+      `https://api.themoviedb.org/3//tv/top_rated?api_key=${
+        import.meta.env.VITE_TMDB_KEY
+      }&language=en-US&include_adult=false&page=${i}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
+      });
+    resultsList = resultsList.concat(z.results);
+  }
+
+  fakeResponse.results = resultsList;
+  return fakeResponse;
+};

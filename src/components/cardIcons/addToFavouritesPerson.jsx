@@ -7,9 +7,9 @@ const AddToFavouritesPersonIcon = ({ person }) => {
   const context = useContext(PersonContext);
 
   const onUserSelect = (e) => {
-    console.log(person)
+    console.log(person);
     e.preventDefault();
-    context.addToFavouritesPersons(person)
+    context.addToFavouritesPersons(person);
   };
   return (
     <IconButton aria-label="add to favorites" onClick={onUserSelect}>

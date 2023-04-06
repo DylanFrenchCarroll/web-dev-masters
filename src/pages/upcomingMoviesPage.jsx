@@ -23,10 +23,12 @@ const genreFiltering = {
 };
 
 const UpcomingMoviePage = (props) => {
-
   checkLogin();
 
-  const { data, error, isLoading, isError } = useQuery("upcoming", getUpcomingMovies);
+  const { data, error, isLoading, isError } = useQuery(
+    "upcoming",
+    getUpcomingMovies
+  );
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [],
     [titleFiltering, genreFiltering]
@@ -52,14 +54,13 @@ const UpcomingMoviePage = (props) => {
   const movies = data ? data.results : [];
   const displayedMovies = filterFunction(movies);
 
-
   return (
     <>
       <PageTemplate
         title="Upcoming Movies"
         movies={displayedMovies}
         action={(movie) => {
-          return <AddToWatchList movie={movie} />
+          return <AddToWatchList movie={movie} />;
         }}
       />
       <MovieFilterUI

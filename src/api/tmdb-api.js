@@ -126,7 +126,6 @@ export const getMovieVideo = (args) => {
     });
 };
 
-
 export const getGenres = async () => {
   return fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +

@@ -16,10 +16,6 @@ const styles = {
   title: {
     flexGrow: 1,
   },
-  appbar: {
-    // background: 'none',
-  },
-  // offset: theme.mixins.toolbar,
 };
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
@@ -41,23 +37,19 @@ const SiteHeader = () => {
     { label: "Popular TV Shows", path: "/tvshows/popular" },
     { label: "Favorite Persons", path: "/persons/favourites" },
     { label: "Favorite Shows", path: "/tvshows/favourites" },
-
   ];
 
   const loggedOutOptions = [
     { label: "Login", path: "/login" },
     { label: "Sign Up", path: "/signup" },
-  ]
+  ];
 
-  const loggedInOptions = [
-    { label: "Logout", path: "/logout" },
-  ]
-  if ( loggedIn() ) {
-    menuOptions = menuOptions.concat(loggedInOptions)
-  }else{
-    menuOptions = menuOptions.concat(loggedOutOptions)
+  const loggedInOptions = [{ label: "Logout", path: "/logout" }];
+  if (loggedIn()) {
+    menuOptions = menuOptions.concat(loggedInOptions);
+  } else {
+    menuOptions = menuOptions.concat(loggedOutOptions);
   }
-
 
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL);

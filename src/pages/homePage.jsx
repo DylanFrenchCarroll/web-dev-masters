@@ -23,7 +23,7 @@ const genreFiltering = {
 };
 
 const HomePage = (props) => {
-checkLogin();
+  checkLogin();
 
   const { data, error, isLoading, isError } = useQuery("discover", getMovies);
 
@@ -59,7 +59,7 @@ checkLogin();
         movies={displayedMovies}
         action={(movie) => {
           return <AddToFavouritesIcon movie={movie} />;
-        }} 
+        }}
       />
       <MovieFilterUI
         onFilterValuesChange={changeFilterValues}

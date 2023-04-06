@@ -5,9 +5,11 @@ import MovieReview from "../components/movieReview";
 import { checkLogin } from "../util";
 
 const MovieReviewPage = (props) => {
-checkLogin();
+  checkLogin();
 
-  const { state : {movie, review } } = useLocation()
+  const {
+    state: { movie, review },
+  } = useLocation();
   return (
     <PageTemplate movie={movie}>
       <MovieReview review={review} />

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import MovieHeader from "../headerMovie";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { getShowImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../spinner'
+import Spinner from "../spinner";
 import TvShowHeader from "../headerTvShows";
-
 
 const styles = {
   gridListRoot: {
@@ -17,12 +15,12 @@ const styles = {
   },
   gridList: {
     width: 450,
-    height: '100vh',
+    height: "100vh",
   },
 };
 
 const TemplateTvShowPage = ({ show, children }) => {
-  const { data , error, isLoading, isError } = useQuery(
+  const { data, error, isLoading, isError } = useQuery(
     ["images", { id: show.id }],
     getShowImages
   );
@@ -34,8 +32,8 @@ const TemplateTvShowPage = ({ show, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  console.log(show)
-  const images = data.posters
+  console.log(show);
+  const images = data.posters;
 
   return (
     <>
@@ -65,7 +63,6 @@ const TemplateTvShowPage = ({ show, children }) => {
           {children}
         </Grid>
       </Grid>
-
     </>
   );
 };

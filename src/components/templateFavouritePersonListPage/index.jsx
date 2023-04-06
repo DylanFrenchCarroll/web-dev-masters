@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Pagination from "../pagination";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
@@ -26,7 +26,7 @@ function FavouritePersonListPageTemplate({ persons, title, action }) {
         </Grid>
         <Grid item container spacing={5}>
           <PersonList action={action} persons={currentRecords} />
-        </Grid>      
+        </Grid>
       </Grid>
       <Pagination
         nPages={nPages}

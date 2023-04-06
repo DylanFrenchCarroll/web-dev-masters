@@ -8,14 +8,16 @@ import Spinner from "../components/spinner";
 import { checkLogin } from "../util";
 
 const WriteReviewPage = (props) => {
-checkLogin();
+  checkLogin();
 
-  const location = useLocation()
+  const location = useLocation();
   const { movieId } = location.state;
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: movieId }],
-    getMovie
-  );
+  const {
+    data: movie,
+    error,
+    isLoading,
+    isError,
+  } = useQuery(["movie", { id: movieId }], getMovie);
 
   if (isLoading) {
     return <Spinner />;

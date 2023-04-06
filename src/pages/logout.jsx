@@ -6,25 +6,22 @@ import { useNavigate } from "react-router-dom";
 const Logout = () => {
   const navigate = useNavigate();
 
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        localStorage.removeItem('authUser');
-        navigate("/");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      localStorage.removeItem("authUser");
+      navigate("/");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
 
   return (
     <>
       <nav>
         <p>Welcome Home</p>
 
-        <div>
-          {/* <button onClick={handleLogout}>Logout</button> */}
-        </div>
+        <div>{/* <button onClick={handleLogout}>Logout</button> */}</div>
       </nav>
     </>
   );

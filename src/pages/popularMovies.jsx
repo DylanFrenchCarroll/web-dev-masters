@@ -2,7 +2,7 @@ import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import { getPopularMovies, getUpcomingMovies } from "../api/tmdb-api";
+import { getPopularMovies } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
@@ -23,7 +23,7 @@ const genreFiltering = {
 };
 
 const PopularMoviePage = (props) => {
-checkLogin();
+  checkLogin();
 
   const { data, error, isLoading, isError } = useQuery(
     "popular",

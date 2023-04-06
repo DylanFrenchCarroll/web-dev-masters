@@ -6,11 +6,8 @@ import { getPopularTVShows } from "../api/tmdb-api";
 import { checkLogin } from "../util";
 import AddToFavouritesTVShowIcon from "../components/cardIcons/addToFavouritesTVShow";
 
-
-
-
 const PopularTVShowsPage = (props) => {
-checkLogin();
+  checkLogin();
 
   const { data, error, isLoading, isError } = useQuery(
     "popularTVShows",
@@ -27,17 +24,16 @@ checkLogin();
   const tvshows = data ? data.results : [];
   const displayedTVShows = tvshows;
 
-
   return (
     <>
       <PageTemplate
         title="Popular TV Shows"
         tvshows={displayedTVShows}
         action={(tvshow) => {
-          return <AddToFavouritesTVShowIcon tvshow={tvshow} />
+          return <AddToFavouritesTVShowIcon tvshow={tvshow} />;
         }}
       />
-    </> 
+    </>
   );
 };
 

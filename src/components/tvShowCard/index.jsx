@@ -35,7 +35,7 @@ export default function TvShowCard({ show, action }) {
             <Avatar sx={styles.avatar}>
               <FavoriteIcon />
             </Avatar>
-          ) :  null
+          ) : null
         }
         title={
           <Typography variant="h5" component="p">

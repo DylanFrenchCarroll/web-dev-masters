@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
 import MovieList from "../movieFavouriteList";
@@ -36,6 +36,6 @@ function MovieListFavouritePageTemplate({ movies, title, action }) {
       />
     </div>
   );
-} 
+}
 
 export default MovieListFavouritePageTemplate;

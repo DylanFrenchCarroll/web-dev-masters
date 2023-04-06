@@ -11,14 +11,11 @@ const RemoveFromFavouritesPersonIcon = ({ person }) => {
     context.removeFromFavouritesPerson(person);
   };
 
-return (
-  <IconButton
-    aria-label="remove from favorites"
-    onClick={onUserRequest}
-  >
-    <DeleteIcon color="primary" fontSize="large" />
-  </IconButton>
-);
+  return (
+    <IconButton aria-label="remove from favorites" onClick={onUserRequest}>
+      <DeleteIcon color="primary" fontSize="large" />
+    </IconButton>
+  );
 };
 
 export default RemoveFromFavouritesPersonIcon;

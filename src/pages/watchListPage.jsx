@@ -9,7 +9,6 @@ import MovieFilterUI, { titleFilter } from "../components/movieFilterUI";
 import WriteReview from "../components/cardIcons/writeReview";
 import { checkLogin } from "../util";
 
-
 const titleFiltering = {
   name: "title",
   value: "",
@@ -19,7 +18,7 @@ export const genreFiltering = {
   name: "genre",
   value: "0",
   condition: function (movie, value) {
-    // Is user selected genre in this movies's genre list? 
+    // Is user selected genre in this movies's genre list?
     // Always true if selected genre ia All (0).
     const genreId = Number(value);
     const genre_ids = movie.genres.map((g) => g.id);
@@ -28,7 +27,7 @@ export const genreFiltering = {
 };
 
 const MustWatchListPage = () => {
-checkLogin();
+  checkLogin();
 
   const { mustWatches: movieIds } = useContext(MoviesContext);
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
@@ -53,9 +52,7 @@ checkLogin();
   }
 
   const allMustWatches = mustWatchMovieQueries.map((q) => q.data);
-  const displayMovies = allMustWatches
-    ? filterFunction(allMustWatches)
-    : [];
+  const displayMovies = allMustWatches ? filterFunction(allMustWatches) : [];
 
   const changeFilterValues = (type, value) => {
     const changedFilter = { name: type, value: value };

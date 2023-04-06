@@ -12,14 +12,11 @@ const RemoveFromFavouritesTvShowIcon = ({ show }) => {
     context.removeFromFavouriteShows(show);
   };
 
-return (
-  <IconButton
-    aria-label="remove from favorites"
-    onClick={onUserRequest}
-  >
-    <DeleteIcon color="primary" fontSize="large" />
-  </IconButton>
-);
+  return (
+    <IconButton aria-label="remove from favorites" onClick={onUserRequest}>
+      <DeleteIcon color="primary" fontSize="large" />
+    </IconButton>
+  );
 };
 
 export default RemoveFromFavouritesTvShowIcon;

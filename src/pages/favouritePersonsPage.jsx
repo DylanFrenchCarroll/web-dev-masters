@@ -1,22 +1,16 @@
 import React, { useContext } from "react";
 import PageTemplate from "../components/templateFavouritePersonListPage";
 import { useQueries } from "react-query";
-import {  getPerson } from "../api/tmdb-api";
+import { getPerson } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
 import RemoveFromFavouritesPersonIcon from "../components/cardIcons/removeFromFavouritesPerson";
 import { checkLogin } from "../util";
-import { PersonContext } from "../contexts/personContext" 
-
+import { PersonContext } from "../contexts/personContext";
 
 const FavouritePersonPage = () => {
-
   checkLogin();
 
-
-
   const { favouritesPersons: personIds } = useContext(PersonContext);
-
-
 
   // Create an array of queries and run them in parallel.
   const favouritePersonQueries = useQueries(
@@ -35,9 +29,7 @@ const FavouritePersonPage = () => {
   }
 
   const allFavourites = favouritePersonQueries.map((q) => q.data);
-  const displayPersons = allFavourites
-
-
+  const displayPersons = allFavourites;
 
   return (
     <>

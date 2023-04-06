@@ -3,7 +3,6 @@ import PageTemplate from "../components/templateFavouriteTVshowListPage";
 import { useQueries } from "react-query";
 import { getShow } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import RemoveFromFavouritesPersonIcon from "../components/cardIcons/removeFromFavouritesPerson";
 import { checkLogin } from "../util";
 import { TvShowContext } from "../contexts/tvShowContext";
 import RemoveFromFavouritesTvShowIcon from "../components/cardIcons/removeFromFavouritesTvShow";

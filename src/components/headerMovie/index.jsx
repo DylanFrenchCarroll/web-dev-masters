@@ -1,4 +1,4 @@
-import React, { useContext }  from "react";
+import React, { useContext } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
@@ -12,9 +12,8 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import { getMovie } from "../../api/tmdb-api";
 import Spinner from "../../components/spinner";
 
-
 const styles = {
-    root: {  
+  root: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
@@ -47,38 +46,37 @@ const MovieHeader = (props) => {
   const allFavourites = favouriteMovieQueries.map((q) => q.data);
   let favourite = false;
 
-  const object = allFavourites.find(obj => obj.id === movie.id);
+  const object = allFavourites.find((obj) => obj.id === movie.id);
 
-  if( object !== undefined ){
-    if (object.id === movie.id){
-      favourite = true
+  if (object !== undefined) {
+    if (object.id === movie.id) {
+      favourite = true;
     }
   }
- 
-
-
-
 
   const renderFavIcon = () => {
     if (favourite) {
-      return  <Avatar sx={{ bgcolor: "rgb(255, 0, 0)"  }}>
-                <FavoriteIcon />
-              </Avatar>
+      return (
+        <Avatar sx={{ bgcolor: "rgb(255, 0, 0)" }}>
+          <FavoriteIcon />
+        </Avatar>
+      );
     }
-  }
+  };
 
-    return (
+  return (
     <Paper component="div" sx={styles.root}>
       <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
       {/* Conditional Render of Favourite Icon */}
       {renderFavIcon()}
-      
+
       <Typography variant="h4" component="h3">
-        {movie.title}{"   "}
+        {movie.title}
+        {"   "}
         <a href={movie.homepage}>
-          <HomeIcon color="primary"  fontSize="='large"/>
+          <HomeIcon color="primary" fontSize="='large" />
         </a>
         <br />
         <span>{`${movie.tagline}`} </span>

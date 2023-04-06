@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import {TvShowContext}  from "../../contexts/tvShowContext";
+import { TvShowContext } from "../../contexts/tvShowContext";
 
 const AddToFavouritesTVShowIcon = ({ tvshow }) => {
   const context = useContext(TvShowContext);
 
   const onUserSelect = (e) => {
-    console.log(tvshow)
+    console.log(tvshow);
     e.preventDefault();
-    context.addToFavouriteShows(tvshow)
+    context.addToFavouriteShows(tvshow);
   };
   return (
     <IconButton aria-label="add to favorites" onClick={onUserSelect}>
@@ -19,4 +19,3 @@ const AddToFavouritesTVShowIcon = ({ tvshow }) => {
 };
 
 export default AddToFavouritesTVShowIcon;
- 

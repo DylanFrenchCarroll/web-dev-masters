@@ -10,7 +10,6 @@ import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
 import { checkLogin } from "../util";
 
-
 const titleFiltering = {
   name: "title",
   value: "",
@@ -20,7 +19,7 @@ export const genreFiltering = {
   name: "genre",
   value: "0",
   condition: function (movie, value) {
-    // Is user selected genre in this movies's genre list? 
+    // Is user selected genre in this movies's genre list?
     // Always true if selected genre ia All (0).
     const genreId = Number(value);
     const genre_ids = movie.genres.map((g) => g.id);
@@ -29,10 +28,7 @@ export const genreFiltering = {
 };
 
 const FavouriteMoviesPage = () => {
-
   checkLogin();
-
-
 
   const { favourites: movieIds } = useContext(MoviesContext);
 
@@ -58,9 +54,7 @@ const FavouriteMoviesPage = () => {
   }
 
   const allFavourites = favouriteMovieQueries.map((q) => q.data);
-  const displayMovies = allFavourites
-    ? filterFunction(allFavourites)
-    : [];
+  const displayMovies = allFavourites ? filterFunction(allFavourites) : [];
 
   const changeFilterValues = (type, value) => {
     const changedFilter = { name: type, value: value };

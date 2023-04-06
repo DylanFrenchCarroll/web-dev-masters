@@ -1,23 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import PersonDetails from "../components/personDetails";
-import useMovie from "../hooks/useMovie";
-import { getMovie, getPerson } from '../api/tmdb-api'
+import { getPerson } from "../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../components/spinner'
+import Spinner from "../components/spinner";
 import PageTemplate from "../components/templatePersonPage";
 import { checkLogin } from "../util";
 
-
 const PersonDetailsPage = () => {
-checkLogin();
+  checkLogin();
 
   const { id } = useParams();
 
-  const { data: person, error, isLoading, isError } = useQuery(
-    ["person", { id: id }],
-    getPerson
-  );
+  const {
+    data: person,
+    error,
+    isLoading,
+    isError,
+  } = useQuery(["person", { id: id }], getPerson);
   if (isLoading) {
     return <Spinner />;
   }
@@ -25,7 +25,7 @@ checkLogin();
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  
+
   return (
     <>
       {person ? (

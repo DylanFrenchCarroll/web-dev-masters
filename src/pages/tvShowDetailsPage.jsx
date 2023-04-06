@@ -1,24 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import PersonDetails from "../components/personDetails";
 import TvShowDetails from "../components/tvShowDetails";
-import useMovie from "../hooks/useMovie";
-import { getShow } from '../api/tmdb-api'
+import { getShow } from "../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../components/spinner'
+import Spinner from "../components/spinner";
 import PageTemplate from "../components/templateTvShowPage";
 import { checkLogin } from "../util";
 
-
 const TvShowDetailsPage = () => {
-checkLogin();
+  checkLogin();
 
   const { id } = useParams();
 
-  const { data: show, error, isLoading, isError } = useQuery(
-    ["show", { id: id }],
-    getShow
-  );
+  const {
+    data: show,
+    error,
+    isLoading,
+    isError,
+  } = useQuery(["show", { id: id }], getShow);
 
   if (isLoading) {
     return <Spinner />;
@@ -27,7 +26,7 @@ checkLogin();
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  
+
   return (
     <>
       {show ? (

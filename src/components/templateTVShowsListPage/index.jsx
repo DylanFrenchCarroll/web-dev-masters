@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Pagination from "../pagination";
 import Header from "../headerMovieList";
 import Grid from "@mui/material/Grid";
@@ -17,7 +17,7 @@ function TVShowsListPageTemplate({ tvshows, title, action }) {
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = tvshows.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(tvshows.length / recordsPerPage);
-  
+
   return (
     <div className="container mt-5">
       <Grid container sx={styles.root}>
@@ -26,7 +26,7 @@ function TVShowsListPageTemplate({ tvshows, title, action }) {
         </Grid>
         <Grid item container spacing={5}>
           <TvShowList action={action} tvshows={currentRecords} />
-        </Grid>      
+        </Grid>
       </Grid>
       <Pagination
         nPages={nPages}

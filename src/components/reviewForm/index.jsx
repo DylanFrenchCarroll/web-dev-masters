@@ -12,9 +12,7 @@ import ratings from "./ratingCategories";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
-
 const ReviewForm = ({ movie }) => {
-
   const defaultValues = {
     author: "",
     review: "",
@@ -30,8 +28,7 @@ const ReviewForm = ({ movie }) => {
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
-  const [open, setOpen] = useState(false);  //NEW
-
+  const [open, setOpen] = useState(false); //NEW
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
@@ -41,7 +38,6 @@ const ReviewForm = ({ movie }) => {
     setOpen(false);
     navigate("/movies/favourites");
   };
-
 
   const onSubmit = (review) => {
     review.movieId = movie.id;
@@ -62,11 +58,7 @@ const ReviewForm = ({ movie }) => {
         open={open}
         onClose={handleSnackClose}
       >
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={handleSnackClose}
-        >
+        <Alert severity="success" variant="filled" onClose={handleSnackClose}>
           <Typography variant="h4">
             Thank you for submitting a review
           </Typography>

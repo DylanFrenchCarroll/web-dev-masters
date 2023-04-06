@@ -25,18 +25,23 @@ const styles = {
   },
 };
 
-export default function TvShowFavouriteCard({ show, action, index, increaseRank, decreaseRank }) {
-
+export default function TvShowFavouriteCard({
+  show,
+  action,
+  index,
+  increaseRank,
+  decreaseRank,
+}) {
   return (
     <Card sx={styles.card}>
       <CardHeader
         sx={styles.header}
         avatar={
           show.favourite ? (
-            <Avatar sx={styles.avatar}> 
+            <Avatar sx={styles.avatar}>
               <FavoriteIcon />
             </Avatar>
-          ) :  null
+          ) : null
         }
         title={
           <Typography variant="h5" component="p">
@@ -77,13 +82,23 @@ export default function TvShowFavouriteCard({ show, action, index, increaseRank,
             Info
           </Button>
         </Link>
-        
-        <Button onClick={event => increaseRank(index)} variant="outlined" size="medium" color="primary">
-           +
-          </Button>
-          <Button onClick={event => decreaseRank(index)} variant="outlined" size="medium" color="primary">
-           -
-          </Button>
+
+        <Button
+          onClick={(event) => increaseRank(index)}
+          variant="outlined"
+          size="medium"
+          color="primary"
+        >
+          +
+        </Button>
+        <Button
+          onClick={(event) => decreaseRank(index)}
+          variant="outlined"
+          size="medium"
+          color="primary"
+        >
+          -
+        </Button>
       </CardActions>
     </Card>
   );

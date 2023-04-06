@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
@@ -43,27 +43,26 @@ const App = () => {
           <MoviesContextProvider>
             <PersonContextProvider>
               <TvShowContextProvider>
-            <Routes>
-              <Route path="/movies/favourites" element={<FavouriteMoviesPage />}/>
-              <Route path="/movies/watchlist" element={<MustWatchListPage />} />
-              <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-              <Route path="/movies/popular" element={<PopularMoviePage />} />
-              <Route path="/movies/:id" element={<MoviePage />} />
-              <Route path="/persons/popular" element={<PopularPersonsPage />} />
-              <Route path="/persons/:id" element={<PersonDetailsPage />} />
-              <Route path="/persons/favourites" element={<FavouritePersonPage />}/>
-              <Route path="/tvshows/popular" element={<PopularTVShowsPage />} />
-              <Route path="/tvshows/favourites" element={<FavouriteTvShowPage />} />
-              <Route path="/tvshows/:id" element={<TvShowDetailsPage />} />
-              <Route path="/" element={<HomePage />} />
-              <Route path="*" element={<Navigate to="/" />} />
-              <Route path="/reviews/:id" element={<MovieReviewPage />} />
-              <Route path="/reviews/form" element={<AddMovieReviewPage />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/logout" element={<Logout />} />
-
-            </Routes>
+              <Routes>
+                <Route path="/movies/favourites" element={<FavouriteMoviesPage />}/>
+                <Route path="/movies/watchlist" element={<MustWatchListPage />} />
+                <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
+                <Route path="/movies/popular" element={<PopularMoviePage />} />
+                <Route path="/movies/:id" element={<MoviePage />} />
+                <Route path="/persons/popular" element={<PopularPersonsPage />} />
+                <Route path="/persons/:id" element={<PersonDetailsPage />} />
+                <Route path="/persons/favourites" element={<FavouritePersonPage />}/>
+                <Route path="/tvshows/popular" element={<PopularTVShowsPage />} />
+                <Route path="/tvshows/favourites" element={<FavouriteTvShowPage />} />
+                <Route path="/tvshows/:id" element={<TvShowDetailsPage />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/reviews/:id" element={<MovieReviewPage />} />
+                <Route path="/reviews/form" element={<AddMovieReviewPage />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/logout" element={<Logout />} />
+              </Routes>
             </TvShowContextProvider>
             </PersonContextProvider>
           </MoviesContextProvider>

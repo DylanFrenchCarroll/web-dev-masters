@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -11,7 +11,10 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { loggedIn } from "../../../util";
+import { loggedIn, userDetails } from "../../../util";
+import HeaderDropDown from "../headerDropDowns";
+import AccountMenu from "../headerAccountDropDown";
+
 const styles = {
   title: {
     flexGrow: 1,
@@ -27,16 +30,22 @@ const SiteHeader = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
-  let menuOptions = [
+  let personOptions = [
+    { label: "Popular People", path: "/persons/popular" },
+    { label: "Favorite Persons", path: "/persons/favourites" },
+  ];
+
+  let tvOptions = [
+    { label: "Popular TV Shows", path: "/tvshows/popular" },
+    { label: "Favorite Shows", path: "/tvshows/favourites" },
+  ];
+
+  let movieOptions = [
     { label: "Discover", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Popular Movies", path: "/movies/popular" },
     { label: "Favorites", path: "/movies/favourites" },
     { label: "Watch List", path: "/movies/watchlist" },
-    { label: "Popular People", path: "/persons/popular" },
-    { label: "Popular TV Shows", path: "/tvshows/popular" },
-    { label: "Favorite Persons", path: "/persons/favourites" },
-    { label: "Favorite Shows", path: "/tvshows/favourites" },
   ];
 
   const loggedOutOptions = [
@@ -45,11 +54,8 @@ const SiteHeader = () => {
   ];
 
   const loggedInOptions = [{ label: "Logout", path: "/logout" }];
-  if (loggedIn()) {
-    menuOptions = menuOptions.concat(loggedInOptions);
-  } else {
-    menuOptions = menuOptions.concat(loggedOutOptions);
-  }
+
+  let accountOptions = loggedIn() ? loggedInOptions : loggedOutOptions;
 
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL);
@@ -69,56 +75,10 @@ const SiteHeader = () => {
           <Typography variant="h6" sx={styles.title}>
             All you ever wanted to know about Movies!
           </Typography>
-          {isMobile ? (
-            <>
-              <IconButton
-                aria-label="menu"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-                size="large"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={open}
-                onClose={() => setAnchorEl(null)}
-              >
-                {menuOptions.map((opt) => (
-                  <MenuItem
-                    key={opt.label}
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </>
-          ) : (
-            <>
-              {menuOptions.map((opt) => (
-                <Button
-                  key={opt.label}
-                  color="inherit"
-                  onClick={() => handleMenuSelect(opt.path)}
-                >
-                  {opt.label}
-                </Button>
-              ))}
-            </>
-          )}
+          <HeaderDropDown menuOptions={tvOptions} placeholder={"TV Shows"} />
+          <HeaderDropDown menuOptions={personOptions} placeholder={"Actors"} />
+          <HeaderDropDown menuOptions={movieOptions} placeholder={"Movies"} />
+          <AccountMenu loggedIn={loggedIn()} menuOptions={accountOptions} />
         </Toolbar>
       </AppBar>
       <Offset />

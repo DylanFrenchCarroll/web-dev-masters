@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 
-
 export function excerpt(string) {
   return truncate(string, {
     length: 400, // maximum 400 characters
@@ -22,10 +21,10 @@ export function checkLogin() {
 
 export function loggedIn() {
   const [user, loading, error] = useAuthState(auth);
-  return user ? true : false
-    // if (user) {
-    //   return true;
-    // }else{
-    //   return false
-    // }
+  return user ? true : false;
+}
+
+export function userDetails() {
+  const [user, loading, error] = useAuthState(auth);
+  return user ?? null;
 }

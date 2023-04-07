@@ -10,7 +10,7 @@ const Logout = () => {
     .then(() => {
       // Sign-out successful.
       localStorage.removeItem("authUser");
-      navigate("/");
+      navigate("/login");
     })
     .catch((error) => {
       // An error happened.
@@ -18,11 +18,6 @@ const Logout = () => {
 
   return (
     <>
-      <nav>
-        <p>Welcome Home</p>
-
-        <div>{/* <button onClick={handleLogout}>Logout</button> */}</div>
-      </nav>
     </>
   );
 };

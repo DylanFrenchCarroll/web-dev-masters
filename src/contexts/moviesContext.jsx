@@ -17,8 +17,7 @@ const MoviesContextProvider = (props) => {
       updatedFavourites.push(movie.id);
     }
     setFavourites(updatedFavourites);
-    // writeToFavourites(user, movie);
-  };
+    writeToFavourites(user, movie);  };
 
   const addToMustWatches = (movie) => {
     let updatedMustWatches = [...mustWatches];

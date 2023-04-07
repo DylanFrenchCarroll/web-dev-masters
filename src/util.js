@@ -46,7 +46,10 @@ export async function retrieveFavourites(user) {
   await retrieveFavouritesDB(user).then( (res) => {
     movies =  res.favouriteMovies
   });
-  return movies;
+  const context = useContext(MoviesContext);
+  movies.forEach( id => {
+      context.addToFavourites(id);
+  });
 }
 
 export function removeFromFavourites(user, movie) {

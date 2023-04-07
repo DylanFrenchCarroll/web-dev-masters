@@ -21,7 +21,8 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
-
+import { MoviesContext } from "./contexts/moviesContext";
+import { retrieveFavourites } from "./util";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA3b2xP8MbgZzGAunZqlPGj5mXpI7mOzi4",
@@ -64,8 +65,9 @@ const signInWithGoogle = async () => {
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password).then((resp) => {
-      retrieveFavouritesDB(resp.user)
       localStorage.setItem("authUser", JSON.stringify(resp.user));
+      // retrieveFavouritesDB(resp.user)
+      retrieveFavourites(resp.user)
     });
   } catch (err) {
     console.error(err);
@@ -146,10 +148,7 @@ const retrieveFavouritesDB = async (user) => {
   querySnapshot.forEach((doc) => {
     data = doc.data();
   });
-  // console.log(data.favouriteMovies)
-  // localStorage.setItem("favourites", data.favouriteMovies);
-
-
+  return data;
 };
 
 export {

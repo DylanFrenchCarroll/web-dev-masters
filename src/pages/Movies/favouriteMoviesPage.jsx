@@ -9,6 +9,10 @@ import MovieFilterUI, { titleFilter } from "../../components/Movies/movieFilterU
 import RemoveFromFavourites from "../../components/cardIcons/removeFromFavourites";
 import WriteReview from "../../components/cardIcons/writeReview";
 import { checkLogin } from "../../util";
+import { retrieveFavourites } from "../../util";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+
 
 const titleFiltering = {
   name: "title",
@@ -29,6 +33,7 @@ export const genreFiltering = {
 
 const FavouriteMoviesPage = () => {
   checkLogin();
+  const [user, loading, error] = useAuthState(auth);
 
   const { favourites: movieIds } = useContext(MoviesContext);
 
@@ -46,6 +51,7 @@ const FavouriteMoviesPage = () => {
       };
     })
   );
+
   // Check if any of the parallel queries is still loading.
   const isLoading = favouriteMovieQueries.find((m) => m.isLoading === true);
 

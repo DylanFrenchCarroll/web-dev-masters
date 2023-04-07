@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { writeToFavourites, retrieveFavourites } from "../util";
+import { auth } from "../firebase";
 
 export const MoviesContext = React.createContext(null);
 
@@ -6,6 +9,7 @@ const MoviesContextProvider = (props) => {
   const [favourites, setFavourites] = useState([]);
   const [mustWatches, setMustWatches] = useState([]);
   const [myReviews, setMyReviews] = useState({});
+  const [user, loading, error] = useAuthState(auth);
 
   const addToFavourites = (movie) => {
     let updatedFavourites = [...favourites];
@@ -13,6 +17,7 @@ const MoviesContextProvider = (props) => {
       updatedFavourites.push(movie.id);
     }
     setFavourites(updatedFavourites);
+    // writeToFavourites(user, movie);
   };
 
   const addToMustWatches = (movie) => {
@@ -34,7 +39,7 @@ const MoviesContextProvider = (props) => {
 
   // We will use this function in a later section
   const removeFromFavourites = (movie) => {
-    setFavourites(favourites.filter((mId) => mId !== movie.id));
+    removeFromFavourites(user, movie);
   };
 
   return (

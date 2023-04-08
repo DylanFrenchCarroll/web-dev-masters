@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { writeToFavourites, retrieveFavourites } from "../util";
+import { writeToFavourites, retrieveFavourites, removeFromFavouritesUtil } from "../util";
 import { auth } from "../firebase";
 
 export const MoviesContext = React.createContext(null);
@@ -17,7 +17,11 @@ const MoviesContextProvider = (props) => {
       updatedFavourites.push(movie.id);
     }
     setFavourites(updatedFavourites);
-    writeToFavourites(user, movie);  };
+    let items = JSON.parse(localStorage.getItem("favourites")) ?? [];
+    items.push(movie.id)
+    localStorage.setItem("favourites", JSON.stringify(items))
+    writeToFavourites(user, movie);
+  };
 
   const addToMustWatches = (movie) => {
     let updatedMustWatches = [...mustWatches];
@@ -38,7 +42,7 @@ const MoviesContextProvider = (props) => {
 
   // We will use this function in a later section
   const removeFromFavourites = (movie) => {
-    removeFromFavourites(user, movie);
+    removeFromFavouritesUtil(user, movie);
   };
 
   return (

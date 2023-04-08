@@ -36,8 +36,8 @@ export function userDetails() {
 }
 
 export function writeToFavourites(user, movie) {
-  const context = useContext(MoviesContext);
-  context.addToFavourites(movie);
+  // const context = useContext(MoviesContext);
+  // context.addToFavourites(movie);
   writeToFavouritesDB(user, movie.id);
 }
 
@@ -46,12 +46,11 @@ export async function retrieveFavourites(user) {
   await retrieveFavouritesDB(user).then( (res) => {
     movies =  res.favouriteMovies
   });
-  const context = useContext(MoviesContext);
-  movies.forEach( id => {
-      context.addToFavourites(id);
-  });
+  // console.log("retrieving favourites")
+  return movies;
+
 }
 
-export function removeFromFavourites(user, movie) {
+export function removeFromFavouritesUtil(user, movie) {
   removeFromFavouritesDB(user, movie.id);
 }

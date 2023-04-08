@@ -5,14 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
   const navigate = useNavigate();
-
+  localStorage.removeItem("authUser");
+  localStorage.removeItem("favourites");
   signOut(auth)
     .then(() => {
-      // Sign-out successful.
-      localStorage.removeItem("authUser");
       navigate("/login");
     })
     .catch((error) => {
+      console.log("error")
+      console.log(error)
       // An error happened.
     });
 

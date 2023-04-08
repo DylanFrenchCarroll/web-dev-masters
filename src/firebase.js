@@ -20,6 +20,7 @@ import {
   getDoc,
   updateDoc,
   arrayUnion,
+  arrayRemove,
 } from "firebase/firestore";
 import { MoviesContext } from "./contexts/moviesContext";
 import { retrieveFavourites } from "./util";
@@ -56,6 +57,11 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+    localStorage.setItem("authUser", JSON.stringify(user));
+    let ids = await retrieveFavouritesDB(user).then((resp) => {
+      return resp.favouriteMovies;
+    });
+    localStorage.setItem("favourites", JSON.stringify(ids));
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -64,11 +70,16 @@ const signInWithGoogle = async () => {
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password).then((resp) => {
-      localStorage.setItem("authUser", JSON.stringify(resp.user));
-      // retrieveFavouritesDB(resp.user)
-      retrieveFavourites(resp.user)
-    });
+    await signInWithEmailAndPassword(auth, email, password).then(
+      async (resp) => {
+        localStorage.setItem("authUser", JSON.stringify(resp.user));
+        let ids = await retrieveFavouritesDB(resp.user).then((resp) => {
+          return resp.favouriteMovies;
+        });
+        console.log(ids)
+        localStorage.setItem("favourites", JSON.stringify(ids));
+      }
+    );
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -102,9 +113,14 @@ const sendPasswordReset = async (email) => {
 };
 
 const logout = () => {
-  signOut(auth).then(() => {
-    localStorage.setItem("authUser", null);
-  });
+  localStorage.removeItem("favourites", null);
+  localStorage.removeItem("authUser", null);
+
+  signOut(auth).then(  () => {
+  }  ).catch (err => {
+    console.log(err)
+  })
+
 };
 
 const writeToFavouritesDB = async (user, id) => {
@@ -120,10 +136,6 @@ const writeToFavouritesDB = async (user, id) => {
   await updateDoc(ref, {
     favouriteMovies: arrayUnion(id),
   });
-
-
-
-
 };
 
 const removeFromFavouritesDB = async (user, id) => {
@@ -136,8 +148,10 @@ const removeFromFavouritesDB = async (user, id) => {
   });
 
   const ref = doc(db, "users", docId);
+
+  console.log("remove from favourites")
   await updateDoc(ref, {
-    favouriteMovies: FieldValue.arrayRemove(id),
+    favouriteMovies: arrayRemove(id),
   });
 };
 

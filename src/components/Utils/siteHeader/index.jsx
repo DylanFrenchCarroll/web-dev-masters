@@ -30,6 +30,10 @@ const SiteHeader = () => {
     { label: "Favorite Persons", path: "/persons/favourites" },
   ];
 
+  let fantasyOptions = [
+    { label: "Create Fanatasy Movie", path: "/fantasy/create" },
+  ];
+
   let tvOptions = [
     { label: "Popular TV Shows", path: "/tvshows/popular" },
     { label: "Favorite Shows", path: "/tvshows/favourites" },
@@ -70,6 +74,7 @@ const SiteHeader = () => {
           <Typography variant="h6" sx={styles.title}>
             All you ever wanted to know about Movies!
           </Typography>
+          <HeaderDropDown menuOptions={fantasyOptions} placeholder={"Fantasy"} />
           <HeaderDropDown menuOptions={tvOptions} placeholder={"TV Shows"} />
           <HeaderDropDown menuOptions={personOptions} placeholder={"Actors"} />
           <HeaderDropDown menuOptions={movieOptions} placeholder={"Movies"} />

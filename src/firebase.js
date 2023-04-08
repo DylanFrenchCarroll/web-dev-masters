@@ -165,6 +165,21 @@ const retrieveFavouritesDB = async (user) => {
   return data;
 };
 
+const writeToFantasyDB = async (user, movie) => {
+  const q = query(collection(db, "users"), where("uid", "==", user.uid));
+  const querySnapshot = await getDocs(q);
+
+  let docId;
+  querySnapshot.forEach(async (doc) => {
+    docId = doc.id;
+  });
+
+  const ref = doc(db, "users", docId);
+  await updateDoc(ref, {
+    fantasyMovies: arrayUnion(movie),
+  });
+};
+
 export {
   app,
   auth,
@@ -177,4 +192,5 @@ export {
   writeToFavouritesDB,
   retrieveFavouritesDB,
   removeFromFavouritesDB,
+  writeToFantasyDB
 };

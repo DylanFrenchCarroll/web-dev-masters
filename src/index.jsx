@@ -24,6 +24,7 @@ import Logout from "./pages/Auth/logout";
 import PopularTVShowsPage from "./pages/TVShows/popularTVShows";
 import FavouriteTvShowPage from "./pages/TVShows/favouriteTVShowsPage";
 import TvShowDetailsPage from "./pages/TVShows/tvShowDetailsPage";
+import FantasyFormPage from "./pages/Fantasy/fantasyFormPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,6 +56,7 @@ const App = () => {
                 <Route path="/tvshows/popular" element={<PopularTVShowsPage />} />
                 <Route path="/tvshows/favourites" element={<FavouriteTvShowPage />} />
                 <Route path="/tvshows/:id" element={<TvShowDetailsPage />} />
+                <Route path="/fantasy/create" element={<FantasyFormPage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="/reviews/:id" element={<MovieReviewPage />} />

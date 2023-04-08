@@ -31,7 +31,9 @@ const SiteHeader = () => {
   ];
 
   let fantasyOptions = [
-    { label: "Create Fanatasy Movie", path: "/fantasy/create" },
+    { label: "Create Movie", path: "/fantasy/create" },
+    { label: "View Movies", path: "/fantasy/list" },
+
   ];
 
   let tvOptions = [

@@ -76,7 +76,7 @@ const logInWithEmailAndPassword = async (email, password) => {
         let ids = await retrieveFavouritesDB(resp.user).then((resp) => {
           return resp.favouriteMovies;
         });
-        console.log(ids)
+        console.log(ids);
         localStorage.setItem("favourites", JSON.stringify(ids));
       }
     );
@@ -116,11 +116,11 @@ const logout = () => {
   localStorage.removeItem("favourites", null);
   localStorage.removeItem("authUser", null);
 
-  signOut(auth).then(  () => {
-  }  ).catch (err => {
-    console.log(err)
-  })
-
+  signOut(auth)
+    .then(() => {})
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const writeToFavouritesDB = async (user, id) => {
@@ -149,7 +149,7 @@ const removeFromFavouritesDB = async (user, id) => {
 
   const ref = doc(db, "users", docId);
 
-  console.log("remove from favourites")
+  console.log("remove from favourites");
   await updateDoc(ref, {
     favouriteMovies: arrayRemove(id),
   });
@@ -180,6 +180,16 @@ const writeToFantasyDB = async (user, movie) => {
   });
 };
 
+const retrieveFantasyDB = async (user) => {
+  const q = query(collection(db, "users"), where("uid", "==", user.uid));
+  const querySnapshot = await getDocs(q);
+  let data;
+  querySnapshot.forEach((doc) => {
+    data = doc.data();
+  });
+  return data.fantasyMovies ?? [];
+};
+
 export {
   app,
   auth,
@@ -192,5 +202,6 @@ export {
   writeToFavouritesDB,
   retrieveFavouritesDB,
   removeFromFavouritesDB,
-  writeToFantasyDB
+  writeToFantasyDB,
+  retrieveFantasyDB,
 };

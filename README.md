@@ -8,7 +8,6 @@ __Name:__ Dylan French Carroll 20080672
 + Favourite Persons page
 + TV Shows Popular
 + TV Shows Favourite
-+ Persistence on favourite movies
 + Create Fantasy Movie
 + View created Fantasy movies
 + Persistence on Fantasy movie
@@ -21,20 +20,28 @@ __Name:__ Dylan French Carroll 20080672
 + Order of favourites
 
 ## Feature Design.
+
+
 #### The Popular Persons feature
 
 > Lists people from the popular persons endpoint of TMDB
 ![][image1]
+
+
 
 #### The Favourite Persons feature
 
 > Lists favourite people from the users
 ![][image1]
 
+
+
 #### The Popular TV Shows feature
 
 > Lists people from the popular TV shows endpoint of TMDB
 ![][image1]
+
+
 
 #### The Favourite TV Shows feature
 
@@ -42,6 +49,53 @@ __Name:__ Dylan French Carroll 20080672
 ![][image1]
 
 
+
+#### The Create Fantasy Movie feature
+
+> Form to enter Fantasy movie details
+![][image1]
+
+
+
+#### The View Fantasy Movies feature
+
+> Page to view Fantasy movies
+![][image1]
+
+
+
+#### The Fantasy Movie Persistence feature
+
+> Screenshot of fantasy movie details saved in DB
+![][image1]
+
+
+
+#### The Movie Search + Favourite feature
+
+> Page that shows search results and ability to favourite them
+![][image1]
+
+
+
+#### The Movie Favourites Persistence feature
+
+> Screenshot to show Movie ID's favourited in DB
+![][image1]
+
+
+
+#### The favourites order feature
+
+> Screenshot showing the buttons to reorder favourites in UI
+![][image1]
+
+
+
+#### The Pagination  feature
+
+> Shows the pagination feature
+![][image1]
 
 
 ## Authentication.

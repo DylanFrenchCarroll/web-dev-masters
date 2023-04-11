@@ -58,23 +58,27 @@ e.g.
 
 e.g.
 
-+ /movies/:id
-+ /persons/popular
-+ /persons/:id
-+ /persons/favourites
-+ /tvshows/popular
-+ /tvshows/favourites
-+ /tvshows/:id
-+ /fantasy/create
-+ /fantasy/list
-+ /search/results
-+ /
-+ *
-+ /reviews/:id
-+ /reviews/form
-+ /signup
-+ /login
-+ /logout
++ /movies/favourites - Favourite movies page
++ /movies/watchlist - Movie watchlist page
++ /movies/upcoming - Upcoming movies page
++ /movies/popular - Popular movies page
++ /movies/:id - Details page for specific movie
++ /persons/popular - Popular persons page
++ /persons/:id - Details page for person
++ /persons/favourites - Favourite persons page
++ /tvshows/popular - Popular TV Shows page
++ /tvshows/favourites - FAvourite TV Shows page
++ /tvshows/:id - Details page for TV Show
++ /fantasy/create - Form to create fantasy movie
++ /fantasy/list - View all Fantasy movies
++ /search/results - View results of term search (Movies)
++ / - Home page showing discover movies
++ * - Redirector to default to home page /
++ /reviews/:id - Specific review page
++ /reviews/form - Route for creating review
++ /signup - Sign up component for Firebase
++ /login - Login component for Firebase
++ /logout - Logout route to logout user
 
 #### Protected features (if relevant)
 

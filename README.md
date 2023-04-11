@@ -56,7 +56,7 @@ e.g.
 
 [ List all the routes in your app and highlight those that are protected/private (require authentication).]
 
-(Auth Protected)
+#### (Auth Protected)
 + /movies/favourites - Favourite movies page
 + /movies/watchlist - Movie watchlist page
 + /movies/upcoming - Upcoming movies page
@@ -76,14 +76,10 @@ e.g.
 + /reviews/:id - Specific review page
 + /reviews/form - Route for creating review
 
-(Unprotected)
+#### (Unprotected)
 + /signup - Sign up component for Firebase
 + /login - Login component for Firebase
 + /logout - Logout route to logout user
-
-#### Protected features (if relevant)
-
-[ Briefly state other areas where you used authentication in the app, for example, to protect access to functionality, e.g. only authenticated users can 'favourite' a movie.]
 
 #### Supabase (if relevant)
 

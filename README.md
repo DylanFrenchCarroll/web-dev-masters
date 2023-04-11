@@ -158,7 +158,7 @@ Proof of data stored in Cloudstore:
 [fantasy_view]: ./images/fantasy_view.png
 [fav_movie_db]: ./images/fav_movie_db.png
 [fav_movies]: ./images/fav_movies.png
-[fav_order]: ./images/fav_order
+[fav_order]: ./images/fav_order.png
 [fav_persons]: ./images/fav_persons.png
 [fav_tv]: ./images/fav_tv.png
 [homepage]: ./images/homepage.png

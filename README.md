@@ -1,14 +1,24 @@
 # Enterprise Web Development - Assignment 1.
 
-__Name:__ [your full name]
+__Name:__ Dylan French Carroll 20080672
 
 ## Overview.
 
 [A bullet-point list of the features developed for the React SPA app (new/modified ones only for the Movies app),]
 
-+ Feature X.
-+ Feature Y. 
-+ etc.
++ Popular Persons page
++ Favourite Persons page
++ TV Shows Popular
++ TV Shows Favourite
++ Persistence on favourite movies
++ Create Fantasy Movie
++ View created Fantasy movies
++ Persistence on Fantasy movie
++ Firebase AUTH with email/pw register and google sign in
++ Firebase cloudstore persistence for fantasy movies/favourite persons
++ Search functionality for movies 
++ Add search results to favourites
++ Persistence on Movie favourites
 
 ## Feature Design.
 
@@ -46,19 +56,30 @@ e.g.
 
 [ List all the routes in your app and highlight those that are protected/private (require authentication).]
 
-e.g.
+#### (Auth Protected)
++ /movies/favourites - Favourite movies page
++ /movies/watchlist - Movie watchlist page
++ /movies/upcoming - Upcoming movies page
++ /movies/popular - Popular movies page
++ /movies/:id - Details page for specific movie
++ /persons/popular - Popular persons page
++ /persons/:id - Details page for person
++ /persons/favourites - Favourite persons page
++ /tvshows/popular - Popular TV Shows page
++ /tvshows/favourites - FAvourite TV Shows page
++ /tvshows/:id - Details page for TV Show
++ /fantasy/create - Form to create fantasy movie
++ /fantasy/list - View all Fantasy movies
++ /search/results - View results of term search (Movies)
++ / - Home page showing discover movies
++ "*" - Redirector to default to home page /
++ /reviews/:id - Specific review page
++ /reviews/form - Route for creating review
 
-+ /movies - List of 20  movies from the Discover endpoint,
-+ /movies/{movie_id} - Detailed information on a specific movie.
-+ /reviews/{review_id} (Protected) - The full text of a movie review.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/{person_id} (Protected) - A specific actor's bio.
-+ etc
-+ etc
-
-#### Protected features (if relevant)
-
-[ Briefly state other areas where you used authentication in the app, for example, to protect access to functionality, e.g. only authenticated users can 'favourite' a movie.]
+#### (Unprotected)
++ /signup - Sign up component for Firebase
++ /login - Login component for Firebase
++ /logout - Logout route to logout user
 
 #### Supabase (if relevant)
 
@@ -66,14 +87,24 @@ e.g.
 
 ## Deployment (if relevant).
 
-[ Specify the URL of your deployed app and include a screenshot(s) from your deployment platform (e.g. Vercal) account that verifies its use for this app. Have a preregistered user for your app and specify their credentials.
+https://web-dev-masters.vercel.app/
 
-Username: test1 ; Password: pass1
+You can log in with google or you can register with an email and password. A temporary one have been set up already.
+
+Username: test@test.com ; Password: test12
 ]
 
 ## Persistence (if relevant).
 
-[ If you are persisting data to the Supabase backend, e.g. favourite movies, fantasy movie, include screenshots with appropriate captions to verify this aspect. ]
+Firebase Domain registered: 
+[image1]: ./images/firebase_domain.png
+
+Proof of users registered to the app:
+[image2]: ./images/firebase_auth_users.png
+
+Proof of data stored in Cloudstore:
+[image3]: ./images/firebase_cloudstore.png
+
 
 ## Additional Information.
 

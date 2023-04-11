@@ -21,12 +21,26 @@ __Name:__ Dylan French Carroll 20080672
 + Order of favourites
 
 ## Feature Design.
+#### The Popular Persons feature
 
-#### The Upcoming Movies feature.
-
-> Lists movies from the Upcoming movies endpoint of TMDB
-
+> Lists people from the popular persons endpoint of TMDB
 ![][image1]
+
+#### The Favourite Persons feature
+
+> Lists favourite people from the users
+![][image1]
+
+#### The Popular TV Shows feature
+
+> Lists people from the popular TV shows endpoint of TMDB
+![][image1]
+
+#### The Favourite TV Shows feature
+
+> Lists favourite TV shows from the users
+![][image1]
+
 
 
 

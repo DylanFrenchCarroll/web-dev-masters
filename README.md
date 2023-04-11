@@ -153,3 +153,16 @@ Proof of data stored in Cloudstore:
 [firebase_domain]: ./images/firebase_domain.png
 [firebase_auth_users]: ./images/firebase_auth_users.png
 [firebase_cloudstore]: ./images/firebase_cloudstore.png
+[fantasy_create]: ./images/fantasy_create.png
+[fantasy_persist]: ./images/fantasy_persist.png
+[fantasy_view]: ./images/fantasy_view.png
+[fav_movie_db]: ./images/fav_movie_db.png
+[fav_movies]: ./images/fav_movies.png
+[fav_order]: ./images/fav_order
+[fav_persons]: ./images/fav_persons.png
+[fav_tv]: ./images/fav_tv.png
+[homepage]: ./images/homepage.png
+[pagination]: ./images/pagination.png
+[popular_persons]: ./images/popular_persons.png
+[popular_tv]: ./images/popular_tv.png
+[search_movie]: ./images/search_movie.png

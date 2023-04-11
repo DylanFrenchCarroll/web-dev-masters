@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { writeToFavourites, retrieveFavourites, removeFromFavouritesUtil } from "../util";
+import { auth } from "../firebase";
 
 export const MoviesContext = React.createContext(null);
 
 const MoviesContextProvider = (props) => {
   const [favourites, setFavourites] = useState([]);
   const [mustWatches, setMustWatches] = useState([]);
-  const [myReviews, setMyReviews] = useState( {} )
+  const [myReviews, setMyReviews] = useState({});
+  const [user, loading, error] = useAuthState(auth);
 
   const addToFavourites = (movie) => {
     let updatedFavourites = [...favourites];
@@ -13,11 +17,14 @@ const MoviesContextProvider = (props) => {
       updatedFavourites.push(movie.id);
     }
     setFavourites(updatedFavourites);
+    let items = JSON.parse(localStorage.getItem("favourites")) ?? [];
+    items.push(movie.id)
+    localStorage.setItem("favourites", JSON.stringify(items))
+    writeToFavourites(user, movie);
   };
 
   const addToMustWatches = (movie) => {
     let updatedMustWatches = [...mustWatches];
-    console.log(updatedMustWatches)
 
     if (!mustWatches.includes(movie.id)) {
       updatedMustWatches.push(movie.id);
@@ -29,13 +36,13 @@ const MoviesContextProvider = (props) => {
     setMustWatches(mustWatches.filter((mId) => mId !== movie.id));
   };
 
-  const addReview = (movie, review) => {   
-    setMyReviews( {...myReviews, [movie.id]: review } )
+  const addReview = (movie, review) => {
+    setMyReviews({ ...myReviews, [movie.id]: review });
   };
 
   // We will use this function in a later section
   const removeFromFavourites = (movie) => {
-    setFavourites(favourites.filter((mId) => mId !== movie.id));
+    removeFromFavouritesUtil(user, movie);
   };
 
   return (
@@ -44,10 +51,10 @@ const MoviesContextProvider = (props) => {
         favourites,
         addToFavourites,
         removeFromFavourites,
-        addReview, 
-        mustWatches,   
+        addReview,
+        mustWatches,
         addToMustWatches,
-        removeFromMustWatches
+        removeFromMustWatches,
       }}
     >
       {props.children}

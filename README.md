@@ -56,8 +56,7 @@ e.g.
 
 [ List all the routes in your app and highlight those that are protected/private (require authentication).]
 
-e.g.
-
+(Auth Protected)
 + /movies/favourites - Favourite movies page
 + /movies/watchlist - Movie watchlist page
 + /movies/upcoming - Upcoming movies page
@@ -76,6 +75,8 @@ e.g.
 + "*" - Redirector to default to home page /
 + /reviews/:id - Specific review page
 + /reviews/form - Route for creating review
+
+(Unprotected)
 + /signup - Sign up component for Firebase
 + /login - Login component for Firebase
 + /logout - Logout route to logout user

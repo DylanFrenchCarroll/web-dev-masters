@@ -6,9 +6,19 @@ __Name:__ [your full name]
 
 [A bullet-point list of the features developed for the React SPA app (new/modified ones only for the Movies app),]
 
-+ Feature X.
-+ Feature Y. 
-+ etc.
++ Popular Persons page
++ Favourite Persons page
++ TV Shows Popular
++ TV Shows Favourite
++ Persistence on favourite movies
++ Create Fantasy Movie
++ View created Fantasy movies
++ Persistence on Fantasy movie
++ Firebase AUTH with email/pw register and google sign in
++ Firebase cloudstore persistence for fantasy movies/favourite persons
++ Search functionality for movies 
++ Add search results to favourites
++ Persistence on Movie favourites
 
 ## Feature Design.
 

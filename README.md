@@ -4,8 +4,6 @@ __Name:__ Dylan French Carroll 20080672
 
 ## Overview.
 
-[A bullet-point list of the features developed for the React SPA app (new/modified ones only for the Movies app),]
-
 + Popular Persons page
 + Favourite Persons page
 + TV Shows Popular
@@ -19,12 +17,10 @@ __Name:__ Dylan French Carroll 20080672
 + Search functionality for movies 
 + Add search results to favourites
 + Persistence on Movie favourites
++ Pagination on all pages
++ Order of favourites
 
 ## Feature Design.
-
-[ For each feature listed in the overview, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include captions with the images.]
-
-e.g. 
 
 #### The Upcoming Movies feature.
 
@@ -32,29 +28,9 @@ e.g.
 
 ![][image1]
 
-#### Movies Reviews feature.
 
-> Lists all the reviews for a particular movie (text extract only).
-
-![][image2]
-
-> Click the 'Full Review' link of an entry in the above list to show the full text of a review. 
-
-![][image3]
-
-.... other features .......
-
-## Storybook.
-
-[ Include a screenshot(s) from the Storybook UI and highlight the stories for new components developed.]
-
-e.g.
-
-![][image5]
 
 ## Authentication.
-
-[ List all the routes in your app and highlight those that are protected/private (require authentication).]
 
 #### (Auth Protected)
 + /movies/favourites - Favourite movies page
@@ -81,11 +57,7 @@ e.g.
 + /login - Login component for Firebase
 + /logout - Logout route to logout user
 
-#### Supabase (if relevant)
-
-[ Include a screenshot(s) from your Supabase account that verifies its use for this app. ]
-
-## Deployment (if relevant).
+## Deployment.
 
 https://web-dev-masters.vercel.app/
 
@@ -94,24 +66,22 @@ You can log in with google or you can register with an email and password. A tem
 Username: test@test.com ; Password: test12
 ]
 
-## Persistence (if relevant).
+## Persistence + Auth.
 
 Firebase Domain registered: 
-[image1]: ./images/firebase_domain.png
+![][firebase_domain]
 
 Proof of users registered to the app:
-[image2]: ./images/firebase_auth_users.png
+![][firebase_auth_users]
+
 
 Proof of data stored in Cloudstore:
-[image3]: ./images/firebase_cloudstore.png
-
+![][firebase_cloudstore]
 
 ## Additional Information.
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
-[image1]: ./images/image1.png
-[image2]: ./images/image2.png
-[image3]: ./images/image3.png
-[image4]: ./images/image4.png
-[image5]: ./images/image5.png
+[firebase_domain]: ./images/firebase_domain.png
+[firebase_auth_users]: ./images/firebase_auth_users.png
+[firebase_cloudstore]: ./images/firebase_cloudstore.png

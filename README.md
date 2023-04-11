@@ -4,8 +4,6 @@ __Name:__ Dylan French Carroll 20080672
 
 ## Overview.
 
-[A bullet-point list of the features developed for the React SPA app (new/modified ones only for the Movies app),]
-
 + Popular Persons page
 + Favourite Persons page
 + TV Shows Popular
@@ -97,21 +95,19 @@ Username: test@test.com ; Password: test12
 ## Persistence (if relevant).
 
 Firebase Domain registered: 
-[image1]: ./images/firebase_domain.png
+![][image1]
+
 
 Proof of users registered to the app:
-[image2]: ./images/firebase_auth_users.png
+
 
 Proof of data stored in Cloudstore:
-[image3]: ./images/firebase_cloudstore.png
 
 
 ## Additional Information.
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
-[image1]: ./images/image1.png
-[image2]: ./images/image2.png
-[image3]: ./images/image3.png
-[image4]: ./images/image4.png
-[image5]: ./images/image5.png
+[image1]: ./images/firebase_domain.png
+[image2]: ./images/firebase_auth_users.png
+[image3]: ./images/firebase_cloudstore.png

@@ -95,19 +95,19 @@ Username: test@test.com ; Password: test12
 ## Persistence (if relevant).
 
 Firebase Domain registered: 
-![][image1]
-
+![][firebase_domain]
 
 Proof of users registered to the app:
+![][firebase_auth_users]
 
 
 Proof of data stored in Cloudstore:
-
+![][firebase_cloudstore]
 
 ## Additional Information.
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
-[image1]: ./images/firebase_domain.png
-[image2]: ./images/firebase_auth_users.png
-[image3]: ./images/firebase_cloudstore.png
+[firebase_domain]: ./images/firebase_domain.png
+[firebase_auth_users]: ./images/firebase_auth_users.png
+[firebase_cloudstore]: ./images/firebase_cloudstore.png

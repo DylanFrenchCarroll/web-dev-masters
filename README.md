@@ -1,6 +1,6 @@
 # Enterprise Web Development - Assignment 1.
 
-__Name:__ [your full name]
+__Name:__ Dylan French Carroll 20080672
 
 ## Overview.
 
@@ -58,13 +58,23 @@ e.g.
 
 e.g.
 
-+ /movies - List of 20  movies from the Discover endpoint,
-+ /movies/{movie_id} - Detailed information on a specific movie.
-+ /reviews/{review_id} (Protected) - The full text of a movie review.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/{person_id} (Protected) - A specific actor's bio.
-+ etc
-+ etc
++ /movies/:id
++ /persons/popular
++ /persons/:id
++ /persons/favourites
++ /tvshows/popular
++ /tvshows/favourites
++ /tvshows/:id
++ /fantasy/create
++ /fantasy/list
++ /search/results
++ /
++ *
++ /reviews/:id
++ /reviews/form
++ /signup
++ /login
++ /logout
 
 #### Protected features (if relevant)
 

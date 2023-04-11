@@ -96,7 +96,15 @@ Username: test@test.com ; Password: test12
 
 ## Persistence (if relevant).
 
-[ If you are persisting data to the Supabase backend, e.g. favourite movies, fantasy movie, include screenshots with appropriate captions to verify this aspect. ]
+Firebase Domain registered: 
+[image1]: ./images/firebase_domain.png
+
+Proof of users registered to the app:
+[image2]: ./images/firebase_auth_users.png
+
+Proof of data stored in Cloudstore:
+[image3]: ./images/firebase_cloudstore.png
+
 
 ## Additional Information.
 

@@ -21,39 +21,15 @@ __Name:__ Dylan French Carroll 20080672
 
 ## Feature Design.
 
-[ For each feature listed in the overview, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include captions with the images.]
-
-e.g. 
-
 #### The Upcoming Movies feature.
 
 > Lists movies from the Upcoming movies endpoint of TMDB
 
 ![][image1]
 
-#### Movies Reviews feature.
 
-> Lists all the reviews for a particular movie (text extract only).
-
-![][image2]
-
-> Click the 'Full Review' link of an entry in the above list to show the full text of a review. 
-
-![][image3]
-
-.... other features .......
-
-## Storybook.
-
-[ Include a screenshot(s) from the Storybook UI and highlight the stories for new components developed.]
-
-e.g.
-
-![][image5]
 
 ## Authentication.
-
-[ List all the routes in your app and highlight those that are protected/private (require authentication).]
 
 #### (Auth Protected)
 + /movies/favourites - Favourite movies page
@@ -80,11 +56,7 @@ e.g.
 + /login - Login component for Firebase
 + /logout - Logout route to logout user
 
-#### Supabase (if relevant)
-
-[ Include a screenshot(s) from your Supabase account that verifies its use for this app. ]
-
-## Deployment (if relevant).
+## Deployment.
 
 https://web-dev-masters.vercel.app/
 
@@ -93,7 +65,7 @@ You can log in with google or you can register with an email and password. A tem
 Username: test@test.com ; Password: test12
 ]
 
-## Persistence (if relevant).
+## Persistence + Auth.
 
 Firebase Domain registered: 
 ![][firebase_domain]

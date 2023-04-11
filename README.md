@@ -25,77 +25,77 @@ __Name:__ Dylan French Carroll 20080672
 #### The Popular Persons feature
 
 > Lists people from the popular persons endpoint of TMDB
-![][image1]
+![][popular_persons]
 
 
 
 #### The Favourite Persons feature
 
 > Lists favourite people from the users
-![][image1]
+![][fav_persons]
 
 
 
 #### The Popular TV Shows feature
 
 > Lists people from the popular TV shows endpoint of TMDB
-![][image1]
+![][popular_tv]
 
 
 
 #### The Favourite TV Shows feature
 
 > Lists favourite TV shows from the users
-![][image1]
+![][fav_tv]
 
 
 
 #### The Create Fantasy Movie feature
 
 > Form to enter Fantasy movie details
-![][image1]
+![][fantasy_create]
 
 
 
 #### The View Fantasy Movies feature
 
 > Page to view Fantasy movies
-![][image1]
+![][fantasy_view]
 
 
 
 #### The Fantasy Movie Persistence feature
 
 > Screenshot of fantasy movie details saved in DB
-![][image1]
+![][fantasy_persist]
 
 
 
 #### The Movie Search + Favourite feature
 
 > Page that shows search results and ability to favourite them
-![][image1]
+![][search_movie]
 
 
 
 #### The Movie Favourites Persistence feature
 
 > Screenshot to show Movie ID's favourited in DB
-![][image1]
+![][fav_movie_db]
 
 
 
 #### The favourites order feature
 
 > Screenshot showing the buttons to reorder favourites in UI
-![][image1]
+![][fav_order]
 
 
 
-#### The Pagination  feature
+#### The Pagination feature
 
 > Shows the pagination feature
-![][image1]
+![][pagination]
 
 
 ## Authentication.

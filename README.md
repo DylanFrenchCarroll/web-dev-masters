@@ -89,7 +89,8 @@ e.g.
 
 [ Specify the URL of your deployed app and include a screenshot(s) from your deployment platform (e.g. Vercal) account that verifies its use for this app. Have a preregistered user for your app and specify their credentials.
 
-Username: test1 ; Password: pass1
+You can log in with google or you can register with an email and password. A temporary one have been set up already.
+Username: test@test.com ; Password: test12
 ]
 
 ## Persistence (if relevant).

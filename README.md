@@ -73,7 +73,7 @@ e.g.
 + /fantasy/list - View all Fantasy movies
 + /search/results - View results of term search (Movies)
 + / - Home page showing discover movies
-+ * - Redirector to default to home page /
++ "*" - Redirector to default to home page /
 + /reviews/:id - Specific review page
 + /reviews/form - Route for creating review
 + /signup - Sign up component for Firebase

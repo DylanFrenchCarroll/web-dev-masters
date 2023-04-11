@@ -18,6 +18,7 @@ __Name:__ Dylan French Carroll 20080672
 + Add search results to favourites
 + Persistence on Movie favourites
 + Pagination on all pages
++ Order of favourites
 
 ## Feature Design.
 

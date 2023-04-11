@@ -9,6 +9,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { loggedIn } from "../../../util";
 import HeaderDropDown from "../headerDropDowns";
 import AccountMenu from "../headerAccountDropDown";
+import SearchBar from "../searchBar";
+
 
 const styles = {
   title: {
@@ -76,6 +78,7 @@ const SiteHeader = () => {
           <Typography variant="h6" sx={styles.title}>
             All you ever wanted to know about Movies!
           </Typography>
+          <SearchBar/>
           <HeaderDropDown menuOptions={fantasyOptions} placeholder={"Fantasy"} />
           <HeaderDropDown menuOptions={tvOptions} placeholder={"TV Shows"} />
           <HeaderDropDown menuOptions={personOptions} placeholder={"Actors"} />

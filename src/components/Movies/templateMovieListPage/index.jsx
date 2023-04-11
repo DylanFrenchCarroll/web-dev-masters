@@ -13,12 +13,12 @@ const styles = {
 function MovieListPageTemplate({ movies, title, action }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(12);
+  console.log(movies)
 
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = movies.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(movies.length / recordsPerPage);
-
   return (
     <div className="container mt-5">
       <Grid container sx={styles.root}>

@@ -61,7 +61,12 @@ const signInWithGoogle = async () => {
     let ids = await retrieveFavouritesDB(user).then((resp) => {
       return resp.favouriteMovies;
     });
-    localStorage.setItem("favourites", JSON.stringify(ids));
+    if (ids === undefined) {
+      let temp = [];
+      localStorage.setItem("favourites", JSON.stringify(temp));
+    } else {
+      localStorage.setItem("favourites", JSON.stringify(ids));
+    }
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -76,8 +81,12 @@ const logInWithEmailAndPassword = async (email, password) => {
         let ids = await retrieveFavouritesDB(resp.user).then((resp) => {
           return resp.favouriteMovies;
         });
-        console.log(ids);
-        localStorage.setItem("favourites", JSON.stringify(ids));
+        if (ids === undefined) {
+          let temp = [];
+          localStorage.setItem("favourites", JSON.stringify(temp));
+        } else {
+          localStorage.setItem("favourites", JSON.stringify(ids));
+        }
       }
     );
   } catch (err) {

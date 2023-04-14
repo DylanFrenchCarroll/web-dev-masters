@@ -17,7 +17,7 @@ const MoviesContextProvider = (props) => {
       updatedFavourites.push(movie.id);
     }
     setFavourites(updatedFavourites);
-    let items = JSON.parse(localStorage.getItem("favourites")) ?? [];
+    let items = JSON.parse(localStorage.getItem("favourites"));
     items.push(movie.id)
     localStorage.setItem("favourites", JSON.stringify(items))
     writeToFavourites(user, movie);

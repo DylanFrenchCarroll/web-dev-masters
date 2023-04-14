@@ -38,7 +38,6 @@ const FavouriteMoviesPage = () => {
   }
 
   const allFavourites = favouriteMovieQueries.map((q) => q.data);
-  console.log(allFavourites)
   const displayMovies = allFavourites;
 
   const changeFilterValues = (type, value) => {

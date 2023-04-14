@@ -27,7 +27,6 @@ const styles = {
 
 const TvShowDetails = ({ show }) => {
   const [drawerOpen, setDrawerOpen] = useState(false); // New
-  console.log(show);
   return (
     <>
       <Typography variant="h5" component="h3">

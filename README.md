@@ -12,7 +12,7 @@ __Name:__ Dylan French Carroll 20080672
 + View created Fantasy movies
 + Persistence on Fantasy movie
 + Firebase AUTH with email/pw register and google sign in
-+ Firebase cloudstore persistence for fantasy movies/favourite persons
++ Firebase cloudstore persistence for fantasy movies/favourite Movies
 + Search functionality for movies 
 + Add search results to favourites
 + Persistence on Movie favourites

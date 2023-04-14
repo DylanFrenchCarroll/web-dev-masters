@@ -146,9 +146,9 @@ Proof of users registered to the app:
 Proof of data stored in Cloudstore:
 ![][firebase_cloudstore]
 
-## Additional Information.
+## Additional Information
 
-[ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
+Usage of Firebase instead of supabase as I had preferred using this service as I know I get full control of every aspect of the AUTH/Persistence with many different products available in Firebase. 
 
 [firebase_domain]: ./images/firebase_domain.png
 [firebase_auth_users]: ./images/firebase_auth_users.png

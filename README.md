@@ -131,8 +131,8 @@ https://web-dev-masters.vercel.app/
 
 You can log in with google or you can register with an email and password. A temporary one have been set up already.
 
-Username: test@test.com ; Password: test12
-]
+Username: test@test.com - Password: test12
+
 
 ## Persistence + Auth.
 

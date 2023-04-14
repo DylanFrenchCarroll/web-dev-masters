@@ -32,7 +32,6 @@ const TemplateTvShowPage = ({ show, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  console.log(show);
   const images = data.posters;
 
   return (

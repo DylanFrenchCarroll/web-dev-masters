@@ -46,7 +46,6 @@ export async function retrieveFavourites(user) {
   await retrieveFavouritesDB(user).then( (res) => {
     movies =  res.favouriteMovies
   });
-  // console.log("retrieving favourites")
   return movies;
 
 }

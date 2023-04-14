@@ -7,7 +7,6 @@ const AddToFavouritesPersonIcon = ({ person }) => {
   const context = useContext(PersonContext);
 
   const onUserSelect = (e) => {
-    console.log(person);
     e.preventDefault();
     context.addToFavouritesPersons(person);
   };

@@ -7,7 +7,6 @@ const AddToFavouritesTVShowIcon = ({ tvshow }) => {
   const context = useContext(TvShowContext);
 
   const onUserSelect = (e) => {
-    console.log(tvshow);
     e.preventDefault();
     context.addToFavouriteShows(tvshow);
   };

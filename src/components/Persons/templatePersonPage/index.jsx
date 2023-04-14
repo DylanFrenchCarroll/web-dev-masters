@@ -32,7 +32,6 @@ const TemplatePersonPage = ({ person, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  console.log(data);
   const images = data.profiles;
 
   return (

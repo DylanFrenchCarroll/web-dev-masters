@@ -43,13 +43,13 @@ export function writeToFavourites(user, movie) {
 }
 
 export async function retrieveFavourites(user) {
+
   let movies = getFavsAPI();
   // await retrieveFavouritesDB(user).then( (res) => {
   //   movies =  res.favouriteMovies
   // });
   console.log(favourites)
   return movies;
-
 }
 
 function getFavsAPI() {

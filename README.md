@@ -131,8 +131,8 @@ https://web-dev-masters.vercel.app/
 
 You can log in with google or you can register with an email and password. A temporary one have been set up already.
 
-Username: test@test.com - Password: test12
-
+Username: test@test.com ; Password: test12
+]
 
 ## Persistence + Auth.
 
@@ -149,7 +149,6 @@ Proof of data stored in Cloudstore:
 ## Additional Information
 
 Usage of Firebase instead of supabase as I had preferred using this service as I know I get full control of every aspect of the AUTH/Persistence with many different products available in Firebase. 
-
 [firebase_domain]: ./images/firebase_domain.png
 [firebase_auth_users]: ./images/firebase_auth_users.png
 [firebase_cloudstore]: ./images/firebase_cloudstore.png

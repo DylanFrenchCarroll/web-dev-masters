@@ -4,15 +4,10 @@ export const getMovies = async () => {
   let fakeResponse = {
     results: [],
   };
-
+  const user = JSON.parse(localStorage.getItem("authUser"));
   // Loop through some requests pages based on api limit
   for (let i = 1; i < 5; i++) {
-    let z = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&language=en-US&include_adult=false&include_video=false&page=${i}`
-    )
-      .then((response) => {
+    let z = await fetch(`${import.meta.env.VITE_API_URL}/api/movies?page=${i}`, { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} }).then((response) => {
         if (!response.ok) {
           throw new Error(response.json().message);
         }
@@ -23,7 +18,6 @@ export const getMovies = async () => {
       });
     resultsList = resultsList.concat(z.results);
   }
-
   fakeResponse.results = resultsList;
   return fakeResponse;
 };
@@ -35,13 +29,10 @@ export const getUpcomingMovies = async () => {
     results: [],
   };
 
+  const user = JSON.parse(localStorage.getItem("authUser"));
   // Loop through some requests pages based on api limit
   for (let i = 1; i < 5; i++) {
-    let z = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&language=en-US&page=${i}`
-    )
+    let z = await fetch(`${import.meta.env.VITE_API_URL}/api/movies/upcoming?page=${i}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.json().message);
@@ -65,13 +56,10 @@ export const getPopularMovies = async () => {
     results: [],
   };
 
+  const user = JSON.parse(localStorage.getItem("authUser"));
   // Loop through some requests pages based on api limit
   for (let i = 1; i < 5; i++) {
-    let z = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&language=en-US&page=${i}`
-    )
+    let z = await fetch(`${import.meta.env.VITE_API_URL}/api/movies/popular?page=${i}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.json().message);
@@ -91,11 +79,8 @@ export const getPopularMovies = async () => {
 export const getMovie = (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  return fetch(`${import.meta.env.VITE_API_URL}/api/movies/${id}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -110,11 +95,8 @@ export const getMovie = (args) => {
 export const getMovieVideo = (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  return fetch(`${import.meta.env.VITE_API_URL}/api/movies/${id}/videos` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -127,10 +109,9 @@ export const getMovieVideo = (args) => {
 };
 
 export const getGenres = async () => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   return fetch(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-      import.meta.env.VITE_TMDB_KEY +
-      "&language=en-US"
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=" + import.meta.env.VITE_TMDB_KEY +"&language=en-US"
   )
     .then((response) => {
       if (!response.ok) {
@@ -146,11 +127,8 @@ export const getGenres = async () => {
 export const getMovieImages = ({ queryKey }) => {
   const [, idPart] = queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/images?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  return fetch(`${import.meta.env.VITE_API_URL}/api/movies/${id}/images` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -163,11 +141,8 @@ export const getMovieImages = ({ queryKey }) => {
 };
 
 export const getMovieReviews = (id) => {
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  return fetch(`${import.meta.env.VITE_API_URL}/api/movies/${id}/reviews` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((res) => res.json())
     .then((json) => {
       return json.results;
@@ -175,6 +150,7 @@ export const getMovieReviews = (id) => {
 };
 
 export const getPopularPersons = async () => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   let resultsList = [];
   // A bit hacky to avoid changing a lot of logic made from lab code
   let fakeResponse = {
@@ -183,11 +159,7 @@ export const getPopularPersons = async () => {
 
   // Loop through some requests pages based on api limit
   for (let i = 1; i < 5; i++) {
-    let z = await fetch(
-      `https://api.themoviedb.org/3//person/popular?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&language=en-US&include_adult=false&include_video=false&page=${i}`
-    )
+    let z = await fetch(`${import.meta.env.VITE_API_URL}/api/persons/popular?page=${i}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.json().message);
@@ -205,13 +177,10 @@ export const getPopularPersons = async () => {
 };
 
 export const getPersonImages = ({ queryKey }) => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   const [, idPart] = queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/person/${id}/images?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  return fetch(`${import.meta.env.VITE_API_URL}/api/persons/${id}/images` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -224,13 +193,10 @@ export const getPersonImages = ({ queryKey }) => {
 };
 
 export const getPerson = (args) => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/person/${id}?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  return fetch(`${import.meta.env.VITE_API_URL}/api/persons/${id}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -243,6 +209,7 @@ export const getPerson = (args) => {
 };
 
 export const getPopularTVShows = async () => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   let resultsList = [];
   // A bit hacky to avoid changing a lot of logic made from lab code
   let fakeResponse = {
@@ -251,11 +218,7 @@ export const getPopularTVShows = async () => {
 
   // Loop through some requests pages based on api limit
   for (let i = 1; i < 5; i++) {
-    let z = await fetch(
-      `https://api.themoviedb.org/3//tv/top_rated?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&language=en-US&include_adult=false&page=${i}`
-    )
+    let z = await fetch(`${import.meta.env.VITE_API_URL}/api/shows/popular?page=${i}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
       .then((response) => {
         if (!response.ok) {
           throw new Error(response.json().message);
@@ -273,13 +236,10 @@ export const getPopularTVShows = async () => {
 };
 
 export const getShow = (args) => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  return fetch(`${import.meta.env.VITE_API_URL}/api/shows/${id}` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -292,13 +252,10 @@ export const getShow = (args) => {
 };
 
 export const getShowImages = ({ queryKey }) => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   const [, idPart] = queryKey;
   const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }`
-  )
+  return fetch(`${import.meta.env.VITE_API_URL}/api/shows/${id}/images` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
     .then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -311,10 +268,9 @@ export const getShowImages = ({ queryKey }) => {
 };
 
 export const searchMovie = (query) => {
+  const user = JSON.parse(localStorage.getItem("authUser"));
   return fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${
-      import.meta.env.VITE_TMDB_KEY
-    }&query=${query}`
+    `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&query=${query}`
   )
     .then((response) => {
       if (!response.ok) {

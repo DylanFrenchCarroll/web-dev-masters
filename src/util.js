@@ -38,18 +38,50 @@ export function userDetails() {
 export function writeToFavourites(user, movie) {
   // const context = useContext(MoviesContext);
   // context.addToFavourites(movie);
+  writeToFavouritesAPI( movie.id)
   writeToFavouritesDB(user, movie.id);
 }
 
 export async function retrieveFavourites(user) {
-  let movies;
-  await retrieveFavouritesDB(user).then( (res) => {
-    movies =  res.favouriteMovies
-  });
+  let movies = getFavsAPI();
+  // await retrieveFavouritesDB(user).then( (res) => {
+  //   movies =  res.favouriteMovies
+  // });
+  console.log(favourites)
   return movies;
+
+}
+
+function getFavsAPI() {
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  return fetch(`${import.meta.env.VITE_API_URL}/api/accounts/${id}/movies/favourites` ,  { headers: {Authorization: `Bearer ${user.stsTokenManager.accessToken}`} })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
 
 }
 
 export function removeFromFavouritesUtil(user, movie) {
   removeFromFavouritesDB(user, movie.id);
+}
+
+export function writeToFavouritesAPI(id) {
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  console.log(user)
+  fetch( `${import.meta.env.VITE_API_URL}/api/accounts/${user.uid}/movies/favourites`, {
+  method: "POST",
+  body: JSON.stringify({
+    movieId: id,
+  }),
+  headers: {
+    Authorization: `Bearer ${user.stsTokenManager.accessToken}`,
+    "Content-type": "application/json; charset=UTF-8"
+  }
+});
 }

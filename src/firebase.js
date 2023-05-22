@@ -28,13 +28,12 @@ import { retrieveFavourites } from "./util";
 const firebaseConfig = {
   apiKey: "AIzaSyA3b2xP8MbgZzGAunZqlPGj5mXpI7mOzi4",
   authDomain: "web-dev-project-e1c58.firebaseapp.com",
+  databaseURL: "https://web-dev-project-e1c58-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "web-dev-project-e1c58",
-  databaseURL:
-    "https://web-dev-project-e1c58-default-rtdb.europe-west1.firebasedatabase.app",
   storageBucket: "web-dev-project-e1c58.appspot.com",
   messagingSenderId: "923746676432",
   appId: "1:923746676432:web:847268ff7877153fec78d5",
-  measurementId: "G-JJ25GBRSPN",
+  measurementId: "G-JJ25GBRSPN"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -107,6 +106,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       authProvider: "local",
       email,
     });
+    console.log(user)
+    createAccountAPI(user.email, user.uid, user.accessToken)
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -173,6 +174,7 @@ const retrieveFavouritesDB = async (user) => {
   querySnapshot.forEach((doc) => {
     data = doc.data();
   });
+  console.log(data)
   return data;
 };
 
@@ -200,6 +202,21 @@ const retrieveFantasyDB = async (user) => {
   });
   return data.fantasyMovies ?? [];
 };
+
+function createAccountAPI (email, uid, accessToken ) {
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  fetch( `${import.meta.env.VITE_API_URL}/api/accounts`, {
+    method: "POST",
+    body: JSON.stringify({
+      email: email,
+      firebaseUid: uid
+    }),
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  });
+}
 
 export {
   app,

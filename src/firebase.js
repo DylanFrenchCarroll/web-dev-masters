@@ -78,6 +78,8 @@ const logInWithEmailAndPassword = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password).then(
       async (resp) => {
         localStorage.setItem("authUser", JSON.stringify(resp.user));
+        console.log(resp)
+        console.log(resp.user.accessToken)
         let ids = await retrieveFavouritesDB(resp.user).then((resp) => {
           return resp.favouriteMovies;
         });
